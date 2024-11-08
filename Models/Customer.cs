@@ -34,7 +34,7 @@ namespace MovieShop.Models
         [StringLength(20,ErrorMessage ="Maxlength is 20.")]
         public string PhoneNo { get; set; } = string.Empty;
 
-
+        public List<Order> OrderList { get; set; } = new List<Order>();
 
     }
 }
