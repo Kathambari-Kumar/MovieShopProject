@@ -18,5 +18,6 @@ namespace MovieShop.Models
             public string Genre { get; set; } = string.Empty;
             public int Release_Year { get; set; }
             public double Price { get; set; }
+            public List<OrderRow> OrderRowList { get; set; } = new List<OrderRow>();
     }
 }
