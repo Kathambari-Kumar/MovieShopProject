@@ -9,6 +9,6 @@
         public string OrderDate { get; set; } = string.Empty;
 
 
-        public  Customer? Customer  { get; set; }
+        
     }
 }
