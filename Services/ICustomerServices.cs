@@ -1,4 +1,4 @@
-﻿using MovieShop.Models;
+﻿using MovieShop.Models.Db;
 
 namespace MovieShop.Services
 {
