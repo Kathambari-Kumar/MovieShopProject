@@ -33,7 +33,7 @@ namespace MovieShop.Controllers
             _movieService.Create(movie);
 
 
-            return RedirectToAction("Details");
+            return View(movie);
         }
         public IActionResult Details() 
         { 
