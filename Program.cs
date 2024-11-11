@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MovieShop.Data;
+using MovieShop.Services;
 using System;
 
 namespace MovieShop
@@ -15,7 +16,10 @@ namespace MovieShop
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<MovieDbContext>(o =>
                o.UseSqlServer(connectionString));
-
+            builder.Services.AddSession();
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddScoped<ICustomerServices, CustomerServices>();
+            builder.Services.AddScoped<IMovieServices, MovieServices>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -25,7 +29,7 @@ namespace MovieShop
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
