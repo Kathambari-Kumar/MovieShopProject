@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MovieShop.Models.Db.Movie>
+﻿@model MovieShop.Models.Db.Movie
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -25,29 +25,29 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+ 
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Title)
+                @Html.DisplayFor(modelItem => Model.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Director)
+                @Html.DisplayFor(modelItem => Model.Director)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Genre)
+                @Html.DisplayFor(modelItem => Model.Genre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Release_Year)
+                @Html.DisplayFor(modelItem => Model.Release_Year)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                @Html.DisplayFor(modelItem => Model.Price)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+
+            <button>+</button>
+
+            <button>-</button>
+
         </tr>
-}
+
     </tbody>
 </table>
