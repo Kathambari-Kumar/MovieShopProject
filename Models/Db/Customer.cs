@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MovieShop.Models
+namespace MovieShop.Models.Db
 {
     public class Customer
     {
@@ -15,7 +15,7 @@ namespace MovieShop.Models
         [StringLength(50, ErrorMessage = "Maxlength is 50.")]
         public string BillingAddress { get; set; } = string.Empty;
 
-        public int BillingZip {  get; set; }
+        public int BillingZip { get; set; }
 
         [StringLength(50, ErrorMessage = "Maxlength is 50.")]
         public string BillingCity { get; set; } = string.Empty;
@@ -23,7 +23,7 @@ namespace MovieShop.Models
         [StringLength(50, ErrorMessage = "Maxlength is 50.")]
         public string DeliveryAddress { get; set; } = string.Empty;
 
-        public int DeliveryZip { get;set; }
+        public int DeliveryZip { get; set; }
 
         [StringLength(50, ErrorMessage = "Maxlength is 50.")]
         public string DeliveryCity { get; set; } = string.Empty;
@@ -31,7 +31,7 @@ namespace MovieShop.Models
         [StringLength(50, ErrorMessage = "Maxlength is 50.")]
         public string EmaillAddress { get; set; } = string.Empty;
 
-        [StringLength(20,ErrorMessage ="Maxlength is 20.")]
+        [StringLength(20, ErrorMessage = "Maxlength is 20.")]
         public string PhoneNo { get; set; } = string.Empty;
 
         public List<Order> OrderList { get; set; } = new List<Order>();

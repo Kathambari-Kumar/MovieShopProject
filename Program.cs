@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using MovieShop.Data;
+using System;
+
 namespace MovieShop
 {
     public class Program
@@ -8,6 +12,9 @@ namespace MovieShop
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+            builder.Services.AddDbContext<MovieDbContext>(o =>
+               o.UseSqlServer(connectionString));
 
             var app = builder.Build();
 
