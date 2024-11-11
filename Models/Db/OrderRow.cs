@@ -1,4 +1,4 @@
-﻿namespace MovieShop.Models
+﻿namespace MovieShop.Models.Db
 {
     public class OrderRow
     {
@@ -11,6 +11,6 @@
         public Movie? Movie { get; set; }
 
 
-        public Order?  Order { get; set; }
+        public Order? Order { get; set; }
     }
 }
