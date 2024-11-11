@@ -7,6 +7,8 @@
         public string OrderDate { get; set; } = string.Empty;
         public Customer? Customer { get; set; }
 
+        public List<OrderRow> OrderRowList { get; set; } = new List<OrderRow>();
+
 
     }
 }

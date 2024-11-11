@@ -1,5 +1,6 @@
 ﻿using MovieShop.Models;
 
+
 namespace MovieShop.Services
 {
     public interface ICustomerServices
