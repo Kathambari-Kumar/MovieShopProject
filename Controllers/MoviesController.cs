@@ -36,8 +36,9 @@ namespace MovieShop.Controllers
             return RedirectToAction("Details");
         }
         public IActionResult Details() 
-        { 
-            return View();
+        {
+            var movielist=_movieService.Display();
+            return View(movielist);
         }
 
     }
