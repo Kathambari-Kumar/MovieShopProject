@@ -29,7 +29,8 @@ namespace MovieShop.Services
         }
         public List<Movie> Display()
         {
-            return new List<Movie>();
+            var movies = _db.Movies.ToList();
+            return movies;
         }
     }
 }
