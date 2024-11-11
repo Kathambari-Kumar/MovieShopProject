@@ -14,7 +14,7 @@ namespace MovieShop
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-            builder.Services.AddDbContext<MovieDbContext>(o =>
+            builder.Services.AddDbContext<interstellardb>(o =>
                o.UseSqlServer(connectionString));
             builder.Services.AddSession();
             builder.Services.AddHttpContextAccessor();

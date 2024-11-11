@@ -4,9 +4,9 @@ using MovieShop.Models.Db;
 
 namespace MovieShop.Data
 {
-    public class MovieDbContext:DbContext
+    public class interstellardb : DbContext
     {
-        public MovieDbContext(DbContextOptions dbContextoptions) : base(dbContextoptions) { }
+        public interstellardb(DbContextOptions dbContextoptions) : base(dbContextoptions) { }
 
         public DbSet<Customer>Customers { get; set; }
 
