@@ -8,8 +8,11 @@ namespace MovieShop.Controllers
         {
             return View();
         }
-
-       public IActionResult Details() 
+        public IActionResult Create()
+        {
+            return View();
+        }
+        public IActionResult Details() 
         { 
             return View();
         }
