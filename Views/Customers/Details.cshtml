@@ -1,0 +1,11 @@
+﻿@model IEnumerable<MovieShop.Models.Db.Customer>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Customer Details</h1>
+
+@foreach (var item in Model) {
+       <partial name="_CustomerPartial" model="item" />
+}
