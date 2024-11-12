@@ -20,3 +20,15 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/*#header {
+    width: 1024px;
+    height: 110px;
+} */
+
+#carouselExampleSlidesOnly {
+    width: 500px;
+    height: 150px;
+    padding-left: 400px;
+    padding-top: 0px;
+}

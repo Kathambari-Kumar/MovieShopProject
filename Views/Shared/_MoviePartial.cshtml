@@ -1,53 +1,15 @@
-﻿@model IEnumerable<MovieShop.Models.Db.Movie>
+﻿@model MovieShop.Models.Db.Movie
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Director)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Genre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Release_Year)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Director)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Release_Year)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="card" style="background-color:whitesmoke; width:400px; height:300px">
+    <div class="card-header bg-secondary"><h3>@Model.Title</h3></div>
+    <div class="card-body">
+        <h6 class="fw-bold">Directed By : @Model.Director</h6>
+        <h6 class="fw-bold">Release Year : @Model.Release_Year</h6>
+        <h6 class="fw-bold">Genre : @Model.Genre</h6>
+        <h6 class="fw-bold">Price : @Model.Price</h6>
+    </div>
+    <div class="card-footer">
+        <a class="btn btn-secondary" asp-action="Buy">Buy</a>
+        <a class="btn btn-secondary" asp-action="Rent">Rent</a>
+    </div>
+</div>
