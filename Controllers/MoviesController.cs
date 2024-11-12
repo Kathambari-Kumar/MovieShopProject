@@ -9,13 +9,10 @@ namespace MovieShop.Controllers
         private readonly IMovieServices _movieService;
         private readonly ICustomerServices _customerService;
 
-
         public MoviesController(IMovieServices movieService, ICustomerServices customerService)
         {
             _movieService = movieService;
             _customerService = customerService;
-
-
         }
         public IActionResult Index()
         {
@@ -30,11 +27,7 @@ namespace MovieShop.Controllers
         [HttpPost]
         public IActionResult Create(Movie movie)
         {
-           
-
             _movieService.Create(movie);
-
-
             return RedirectToAction("Details");
         }
         public IActionResult Details() 
@@ -42,6 +35,5 @@ namespace MovieShop.Controllers
             var movielist=_movieService.Display();
             return View(movielist);
         }
-
     }
 }

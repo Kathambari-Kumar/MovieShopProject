@@ -1,0 +1,20 @@
+﻿@model MovieShop.Models.Db.Customer;
+
+<div class="card" style="background-color:whitesmoke; width:400px; height:200px">
+    <div class="card-header bg-secondary"></div>
+    <div class="card-body">
+        <h6 class="fw-bold">Name : @Model.Firstname @Model.Lastname</h6>
+        <h6 class="fw-bold">Billing Address</h6>
+        <h6 class="fw-bold">@Model.BillingAddress</h6>
+        <h6 class="fw-bold">@Model.BillingZip</h6>
+        <h6 class="fw-bold">@Model.BillingCity</h6>
+        <h6 class="fw-bold">Delivery Address</h6>
+        <h6 class="fw-bold">@Model.DeliveryAddress</h6>
+        <h6 class="fw-bold">@Model.DeliveryZip</h6>
+        <h6 class="fw-bold">@Model.DeliveryCity</h6>
+    </div>
+    <div class="card-footer" style="background-color:darkgrey; width:400px; height:50px">
+        <h6 class="fw-bold">Phone Number : @Model.PhoneNo</h6>
+        <h6 class="fw-bold">E-Mail Address : @Model.EmaillAddress</h6>
+    </div>
+</div>
