@@ -18,6 +18,12 @@ namespace MovieShop.Models.Db
         public string Genre { get; set; } = string.Empty;
         public int Release_Year { get; set; }
         public double Price { get; set; }
+
+        [StringLength(150, ErrorMessage = "Max Length is 150")]
+        public string TargetUrl { get; set; } = string.Empty;
+
         public List<OrderRow> OrderRowList { get; set; } = new List<OrderRow>();
+
+       
     }
 }
