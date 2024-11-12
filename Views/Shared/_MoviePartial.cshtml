@@ -7,9 +7,10 @@
         <h6 class="fw-bold">Release Year : @Model.Release_Year</h6>
         <h6 class="fw-bold">Genre : @Model.Genre</h6>
         <h6 class="fw-bold">Price : @Model.Price</h6>
+        <img src="@Model.TargetUrl" width="50" height="50" />
     </div>
     <div class="card-footer">
-        <a class="btn btn-secondary" asp-action="Buy">+</a>
-        <a class="btn btn-secondary" asp-action="Rent">-</a>
+        <a class="btn btn-secondary" asp-action="">Add to Cart</a>
     </div>
 </div>
+<hr />
