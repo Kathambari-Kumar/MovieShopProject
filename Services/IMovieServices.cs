@@ -6,5 +6,10 @@ namespace MovieShop.Services
     {
         public void Create(Movie movie);
         public List<Movie> Display();
+
+        public List<Movie> Top5Newest();
+        public List<Movie> Top5Oldest();
+
+        public List<Movie> Top5Cheapest();
     }
 }
