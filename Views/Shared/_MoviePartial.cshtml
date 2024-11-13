@@ -1,6 +1,6 @@
 ﻿@model MovieShop.Models.Db.Movie
 
-<div class="card" style="background-color:whitesmoke; width:400px; height:300px">
+<div class="card" style="background-color:whitesmoke; width:300px; height:300px">
     <div class="card-header bg-secondary"><h3>@Model.Title</h3></div>
     <div class="card-body">
         <h6 class="fw-bold">Directed By : @Model.Director</h6>
@@ -10,7 +10,7 @@
         <img src="@Model.TargetUrl" width="50" height="50" />
     </div>
     <div class="card-footer">
-        <a class="btn btn-secondary" asp-action="">Add to Cart</a>
+        <a class="btn btn-secondary" onclick="AddToCart(@Model.Id)">Add to Cart</a>
     </div>
 </div>
 <hr />
