@@ -20,6 +20,7 @@ namespace MovieShop
             builder.Services.AddHttpContextAccessor();
             builder.Services.AddScoped<ICustomerServices, CustomerServices>();
             builder.Services.AddScoped<IMovieServices, MovieServices>();
+            builder.Services.AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(20));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -32,6 +33,7 @@ namespace MovieShop
             
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 
