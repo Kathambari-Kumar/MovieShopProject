@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 using MovieShop.Models.Db;
 using MovieShop.Services;
 namespace MovieShop.Controllers
@@ -37,10 +38,20 @@ namespace MovieShop.Controllers
             var movielist=_movieService.Display();
             return View(movielist);
         }
+        [HttpGet]
+        public IActionResult Edit()
+        {
+           
+            return View();
+        }
+
+        [HttpPost]
         public IActionResult Edit(Movie updatePrice)
         {
+           
             var movie = _movieService.UpdateMoviePrice(updatePrice);
             return RedirectToAction("Details");
         }
+
     }
 }
