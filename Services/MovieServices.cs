@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Identity.Client;
 using MovieShop.Data;
 using MovieShop.Models.Db;
 
@@ -60,6 +61,17 @@ namespace MovieShop.Services
 
             return top5Cheapest;
 
+        }
+        public bool UpdateMoviePrice(Movie updatePrice)
+        {
+           var movie = _db.Movies.Find(updatePrice.Id);
+            if (movie == null)
+            {
+                return false;
+            }
+            movie.Price = updatePrice.Price;
+            _db.SaveChanges();
+            return true;
         }
     }
 }

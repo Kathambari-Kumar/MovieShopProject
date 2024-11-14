@@ -11,5 +11,6 @@ namespace MovieShop.Services
         public List<Movie> Top5Oldest();
 
         public List<Movie> Top5Cheapest();
+        public bool UpdateMoviePrice(Movie updatePrice);
     }
 }
