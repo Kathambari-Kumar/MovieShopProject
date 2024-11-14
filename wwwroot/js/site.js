@@ -3,22 +3,63 @@
 
 // Write your JavaScript code.
 
-function AddToCart(movieId) {
 
-    $.ajax({
+    function AddToCart(movieId) {
 
-        type: 'post',
+        $.ajax({
 
-        url: '/ShoppingCart/AddToCart',
+            type: 'post',
 
-        dataType: 'json',
+            url: '/ShoppingCart/AddToCart',
 
-        data: { id: movieId },
-        success: function (count) {
+            dataType: 'json',
 
-            $('#cartCount').html(count); // The id ‘cartCount’ refers to an HTML-element
+            data: { id: movieId },
+            success: function (count) {
+                console.log(count);
+                $('#cartCount').html(count); // The id ‘cartCount’ refers to an HTML-element
+            }
+        })
+    }
 
-        }
 
-    })
+//function IncreaseCopy(noofcopies) {
+
+//    $.ajax({
+
+//        type: 'post',
+
+//        url: '/ShoppingCart/IncreaseCount',
+
+//        dataType: 'json',
+
+//        data: { noofcopies: noofcopies },
+//        success: function (copies) {
+//            console.log("no",copies);
+//            $('#increasecopies').html(copies); // The id ‘cartCount’ refers to an HTML-element
+
+//        }
+//    })
+//}
+function IncreaseCopy() {
+    var oldcopies = Number(document.getElementById('uniqueid').innerHTML);
+    var price = Number(document.getElementById('price').innerHTML);
+    var newcopies = oldcopies + 1;
+    document.getElementById('uniqueid').innerText = newcopies;
+    document.getElementById("total").innerText = newcopies * price;
+}
+
+function DecreaseCopy() {
+    var oldcopies = Number(document.getElementById('changecopies').innerHTML);
+    var price = Number(document.getElementById('price').innerHTML);
+    var newcopies = oldcopies - 1;
+    document.getElementById("changecopies").innerText = newcopies;
+    document.getElementById("total").innerText = newcopies * price;
+}
+
+function CartCount()
+{
+    var numberofitems = Number(document.getElementById('cartCount').innerHTML);
+    
+    document.getElementById("increasecopies").innerText = numberofitems;
 }
