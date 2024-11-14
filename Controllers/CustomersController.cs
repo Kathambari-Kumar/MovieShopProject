@@ -31,7 +31,52 @@ namespace MovieShop.Controllers
         public IActionResult Details() 
         {
             var customerlist = _customerService.Display();
+
             return View(customerlist); 
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id) 
+        {
+            var customer = _customerService.GetCustomerById(id);
+            if (customer == null)
+            {
+                return NotFound();
+            }
+
+
+            return View(customer);
+        
+        
+        }
+
+        [HttpPost]
+        public IActionResult Update(int id,Customer customer) 
+        {
+            if (id != customer.Id)
+            {
+                return BadRequest();
+
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _customerService.Update(customer);
+                    return RedirectToAction("Details");
+
+                }
+                catch(Exception)
+                {
+                   
+                }
+            
+            }
+
+            return View(customer);
+        }
+
+
     }
 }

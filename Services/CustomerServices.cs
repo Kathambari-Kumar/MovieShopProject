@@ -41,5 +41,23 @@ namespace MovieShop.Services
 
             return customerList;
         }
+        public Customer GetCustomerById(int id)
+        {
+
+            return _db.Customers.Find(id);
+        }
+
+
+
+        public void Update(Customer customer)
+        
+            {
+            _db.Customers.Update(customer);
+            _db.SaveChanges();
+
+            }
+
+
+        
     }
 }
