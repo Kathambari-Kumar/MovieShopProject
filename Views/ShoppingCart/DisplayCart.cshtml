@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<MovieShop.Models.ViewModels.CartItem>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Movie Name</th>
+            <th scope="col"></th>
+            <th scope="col">Price</th>
+            <th scope="col">Number Copies</th>
+            <th scope="col">SubTotal</th>
+        </tr>
+    </thead>
+<tbody>
+@foreach(var item in Model)
+{
+    var uniqueid = "changecopies" + @item.MovieId;
+    <tr>
+    <td><img src="@item.TargetURL" width="50" height="50"/></td>
+    <td>@item.Title</td>
+    <td id="price">@item.Price</td>
+    <td><button class="btn btn-primary" onclick="IncreaseCopy()">&#8593;</button>
+    <div id="@uniqueid">@item.Copies</div>
+    <button class="btn btn-primary" onclick="DecreaseCopy()">&#8595;</button>
+    </td>
+    <td id="total">@(item.Price * item.Copies)</td> 
+</tr>
+}
+</tbody>
+</table>
+
+<a class="btn btn-secondary" asp-controller="" asp-action="">Proceed to Pay</a>

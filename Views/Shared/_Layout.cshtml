@@ -180,4 +180,13 @@
     }
 </style>
 
-    
+@* <script>
+    window.onbeforeunload = function () {
+        localStorage.setItem(count, $('#cartCount').val());
+    }
+    window.onload = function () {
+        var count = localStorage.getItem(count);
+        if (count !== null) $('#cartCount').val(name);
+    }
+</script> *@
+

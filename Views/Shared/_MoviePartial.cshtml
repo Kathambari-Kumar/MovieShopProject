@@ -10,7 +10,10 @@
         <img src="@Model.TargetUrl" width="50" height="50" />
     </div>
     <div class="card-footer">
-        <a class="btn btn-secondary" onclick="AddToCart(@Model.Id)">Add to Cart</a>
-    </div>
+      <a class="btn btn-secondary" onclick="AddToCart(@Model.Id)">Add to Cart</a> 
+@*         <a class="btn btn-secondary" href="@Url.Action("AddToCart", new {id = Model.Id})">Add To Cart</a>
+ *@    
+</div>
 </div>
 <hr />
+

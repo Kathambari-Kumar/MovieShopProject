@@ -20,7 +20,8 @@ namespace MovieShop
             builder.Services.AddHttpContextAccessor();
             builder.Services.AddScoped<ICustomerServices, CustomerServices>();
             builder.Services.AddScoped<IMovieServices, MovieServices>();
-            builder.Services.AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(20));
+            builder.Services.AddScoped<CartService>();
+            builder.Services.AddSession();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
