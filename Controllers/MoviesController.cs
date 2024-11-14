@@ -37,5 +37,10 @@ namespace MovieShop.Controllers
             var movielist=_movieService.Display();
             return View(movielist);
         }
+        public IActionResult Edit(Movie updatePrice)
+        {
+            var movie = _movieService.UpdateMoviePrice(updatePrice);
+            return RedirectToAction("Details");
+        }
     }
 }
