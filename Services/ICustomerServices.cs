@@ -8,5 +8,10 @@ namespace MovieShop.Services
         public void Create(Customer customer);
         public List<Customer> Display();
 
+        public Customer GetCustomerById(int id);
+
+
+        public void Update(Customer customer);
+
     }
 }
