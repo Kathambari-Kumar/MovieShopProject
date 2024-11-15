@@ -1,8 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Identity.Client;
+using Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore;
 using MovieShop.Data;
 using MovieShop.Models.Db;
+using NuGet.Protocol;
+using System.ComponentModel.DataAnnotations;
+using System.Net;
+
 
 namespace MovieShop.Services
 {
@@ -62,16 +70,27 @@ namespace MovieShop.Services
             return top5Cheapest;
 
         }
-        public bool UpdateMoviePrice(Movie updatePrice)
+
+       
+        public Movie GetMovieById(int id)
         {
-           var movie = _db.Movies.Find(updatePrice.Id);
-            if (movie == null)
-            {
-                return false;
-            }
-            movie.Price = updatePrice.Price;
-            _db.SaveChanges();
-            return true;
+            var movie = _db.Movies.Find(id);
+            return movie;
+
         }
+        public void UpdateMovie(Movie movie)
+        {
+            _db.Movies.Update(movie);
+            _db.SaveChanges();
+
+        }
+
+
+
+
+
+
     }
+
+
 }
