@@ -41,23 +41,19 @@ namespace MovieShop.Services
 
             return customerList;
         }
-        public Customer GetCustomerById(int id)
+        public Customer GetCustomerByemail(string email)
         {
+            
+            var customer = _db.Customers.FirstOrDefault(c => c.EmaillAddress == email);
 
-            return _db.Customers.Find(id);
+            return customer;
+
         }
 
 
 
-        public void Update(Customer customer)
-        
-            {
-            _db.Customers.Update(customer);
-            _db.SaveChanges();
-
-            }
 
 
-        
+
     }
 }

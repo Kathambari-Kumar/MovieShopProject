@@ -35,47 +35,34 @@ namespace MovieShop.Controllers
             return View(customerlist); 
         }
 
-        [HttpGet]
-        public IActionResult Edit(int id) 
+
+        public IActionResult EnterEmail()
         {
-            var customer = _customerService.GetCustomerById(id);
-            if (customer == null)
-            {
-                return NotFound();
-            }
-
-
-            return View(customer);
-        
-        
+            return View();
         }
+
 
         [HttpPost]
-        public IActionResult Update(int id,Customer customer) 
+        public IActionResult UpdateCustomer(string email)
         {
-            if (id != customer.Id)
-            {
-                return BadRequest();
+           
+           var customer = _customerService.GetCustomerByemail(email);
 
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _customerService.Update(customer);
-                    return RedirectToAction("Details");
-
-                }
-                catch(Exception)
-                {
-                   
-                }
-            
-            }
-
-            return View(customer);
+         return View(customer);
         }
+
+
+        [HttpPost]
+
+        public IActionResult Success()
+        {
+            return View();
+        }
+
+
+
+
+
 
 
     }
