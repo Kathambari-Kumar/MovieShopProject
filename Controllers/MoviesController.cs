@@ -2,6 +2,7 @@
 using Microsoft.Identity.Client;
 using MovieShop.Models.Db;
 using MovieShop.Services;
+using System.Dynamic;
 namespace MovieShop.Controllers
 {
     public class MoviesController : Controller
@@ -38,19 +39,26 @@ namespace MovieShop.Controllers
             var movielist=_movieService.Display();
             return View(movielist);
         }
-        [HttpGet]
-        public IActionResult Edit()
-        {
-           
-            return View();
-        }
 
-        [HttpPost]
-        public IActionResult Edit(Movie updatePrice)
+       
+
+        [HttpGet]
+        public IActionResult Edit(int id)
         {
-           
-            var movie = _movieService.UpdateMoviePrice(updatePrice);
-            return RedirectToAction("Details");
+            var movie = _movieService.GetMovieById(id);
+
+            return View(movie);
+        }
+        [HttpPost]
+
+        public IActionResult Edit(Movie movie)
+        {
+            if (ModelState.IsValid)
+            {
+                _movieService.UpdateMovie(movie);
+                return RedirectToAction("Details");
+            }
+            return View(movie);
         }
 
     }
