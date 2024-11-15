@@ -37,7 +37,16 @@ namespace MovieShop.Services
             {
                 var session = _httpContextAccessor.HttpContext.Session;
                 List<CartItem> cartItems = JsonConvert.DeserializeObject<List<CartItem>>(session.GetString("MovieCart"));
-                cartItems.Add(item);
+                //var ismovie = (CartItem)cartItems[0];
+                var ismovie = cartItems.Where(c=>c.MovieId == movieid).FirstOrDefault();
+                if (ismovie != null)
+                {
+                    ismovie.Copies = ismovie.Copies + 1;
+                }
+                else
+                {
+                    cartItems.Add(item);
+                }
                 _httpContextAccessor.HttpContext.Session.SetString("MovieCart", JsonConvert.SerializeObject(cartItems));
             }
         }
@@ -50,7 +59,33 @@ namespace MovieShop.Services
                 List<CartItem>? cartitems = JsonConvert.DeserializeObject<List<CartItem>>(session.GetString("MovieCart"));
                 return cartitems;
            // }
-            
+        }
+        public void IncreaseCopy(int id)
+        {
+            var session = _httpContextAccessor.HttpContext.Session;
+            List<CartItem>? cartitems = JsonConvert.DeserializeObject<List<CartItem>>(session.GetString("MovieCart"));
+            var movie = cartitems.Where(m => m.MovieId == id).FirstOrDefault();
+            if (movie != null)
+            {
+                movie.Copies = movie.Copies + 1;
+            }
+            _httpContextAccessor.HttpContext.Session.SetString("MovieCart", JsonConvert.SerializeObject(cartitems));
+        }
+
+        public void DecreaseCopy(int id)
+        {
+            var session = _httpContextAccessor.HttpContext.Session;
+            List<CartItem>? cartitems = JsonConvert.DeserializeObject<List<CartItem>>(session.GetString("MovieCart"));
+            var movie = cartitems.Where(m => m.MovieId == id).FirstOrDefault();
+            if (movie != null)
+            {
+                movie.Copies = movie.Copies - 1;
+                if (movie.Copies == 0)
+                {
+                    cartitems.Remove(movie);
+                }
+            }
+            _httpContextAccessor.HttpContext.Session.SetString("MovieCart", JsonConvert.SerializeObject(cartitems));
         }
     }
 }

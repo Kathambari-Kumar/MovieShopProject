@@ -22,6 +22,41 @@
         })
     }
 
+function AddItem(MovieId) {
+    $.ajax({
+
+        type: 'post',
+
+        url: '/ShoppingCart/AddItem',
+
+        dataType: 'json',
+
+        data: { id: movieId },
+        success: function (count) {
+            console.log(count);
+            $('#cartCount').html(count); // The id ‘cartCount’ refers to an HTML-element
+        }
+    })
+
+}
+
+function ReduceItem(MovieId) {
+    $.ajax({
+
+        type: 'post',
+
+        url: '/ShoppingCart/ReduceItem',
+
+        dataType: 'json',
+
+        data: { id: movieId },
+        success: function (count) {
+            console.log(count);
+            $('#cartCount').html(count); // The id ‘cartCount’ refers to an HTML-element
+        }
+    })
+
+}
 
 //function IncreaseCopy(noofcopies) {
 
