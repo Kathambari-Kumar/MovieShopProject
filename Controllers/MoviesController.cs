@@ -53,12 +53,14 @@ namespace MovieShop.Controllers
 
         public IActionResult Edit(Movie movie)
         {
+
             if (ModelState.IsValid)
             {
                 _movieService.UpdateMovie(movie);
                 return RedirectToAction("Details");
             }
             return View(movie);
+
         }
 
     }

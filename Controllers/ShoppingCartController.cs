@@ -49,5 +49,32 @@ namespace MovieShop.Controllers
             var moviecartItems = _cartService.DisplayCart();
             return View(moviecartItems);
         }
+        
+        //[HttpGet]
+        //public IActionResult AddItem(int movieid)
+        //{
+        //    return View();
+        //}
+        
+        //[HttpPost, ActionName("AddItem")]
+       public IActionResult AddItem(int movieid)
+      // public IActionResult AddCopies(int movieid)
+        {
+            _cartService.IncreaseCopy(movieid);
+           // var movieCartItems = _cartServices.DisplayCart();
+            return RedirectToAction("DisplayCart");
+        }
+        //[HttpGet]
+        //public IActionResult ReduceItem(int movieid)
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost, ActionName("ReduceItem")]
+        public IActionResult ReduceItem(int movieid)
+        {
+            _cartService.DecreaseCopy(movieid);
+            return RedirectToAction("DisplayCart");
+        }
     }
 }
