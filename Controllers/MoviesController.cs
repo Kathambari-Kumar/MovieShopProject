@@ -48,8 +48,7 @@ namespace MovieShop.Controllers
         [HttpPost]
         public IActionResult Edit(Movie updatePrice)
         {
-           
-            var movie = _movieService.UpdateMoviePrice(updatePrice);
+            //var movie = _movieService.UpdateMoviePrice(updatePrice);
             return RedirectToAction("Details");
         }
 
