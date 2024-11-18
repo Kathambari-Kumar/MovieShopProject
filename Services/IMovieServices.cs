@@ -13,7 +13,7 @@ namespace MovieShop.Services
         public List<Movie> Top5Cheapest();
 
 
-        public List<Movie> Update();
+        public List<Movie> Update(Movie movie);
 
         
 
