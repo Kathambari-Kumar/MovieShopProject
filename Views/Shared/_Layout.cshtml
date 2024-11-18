@@ -31,18 +31,18 @@
                 <img src="~/Images/Title.jpg" style="width:100px;height:70px" />
                 <button class="btn btn-black bg-gradient text-white fs-5" href="#">Home</button>
 
-                <button class="btn bg-black bg-gradient btn-sm text-white fs-6" asp-controller="Customer" asp-action="Create">
+                <button class="btn bg-black bg-gradient btn-sm text-white fs-6" asp-controller="Customers" asp-action="Create">
                     Register
                 </button>
-                <button class="btn bg-black btn-sm bg-gradient text-white fs-6" asp-controller="Customer" asp-action="Display">
+                <button class="btn bg-black btn-sm bg-gradient text-white fs-6" asp-controller="Customers" asp-action="EnterEmail">
                     Update Customer
                 </button>
 
-                <button class="btn bg-black bg-gradient text-white fs-6" asp-controller="Movie" asp-action="Display">
+                <button class="btn bg-black bg-gradient text-white fs-6" asp-controller="Movies" asp-action="Details">
                     Complete Movie List
                 </button>
 
-                <button class="btn bg-black bg-gradient text-white fs-6" asp-controller="Movie" asp-action="Create">
+                <button class="btn bg-black bg-gradient text-white fs-6" asp-controller="Movies" asp-action="Create">
                     Administrator
                 </button>
 
@@ -65,22 +65,22 @@
         }
         Search by Category : &nbsp;
 
-        <a class="btn btn-black text-white bg-gradient" href="/Movie/GenreBasedMovies?genre=@comedy">
+        <a class="btn btn-black text-white bg-gradient" href="/Movies/GenreBasedMovies?genre=@comedy">
             Comedy
         </a>&nbsp;
-        <a class="text-white btn btn-black bg-gradient" href="/Movie/GenreBasedMovies?genre=@romance">
+        <a class="text-white btn btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@romance">
             Romance
         </a>&nbsp;
-        <a class="text-white btn btn-black bg-gradient" href="/Movie/GenreBasedMovies?genre=@scifi">
+        <a class="text-white btn btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@scifi">
             Sci-Fi
         </a>&nbsp;
-        <a class="text-white btn btn-black bg-gradient" href="/Movie/GenreBasedMovies?genre=@thriller">
+        <a class="text-white btn btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@thriller">
             Thriller
         </a>&nbsp;
-        <a class="text-white btn btn-black bg-gradient" href="/Movie/GenreBasedMovies?genre=@horror">
+        <a class="text-white btn btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@horror">
             Horror
         </a>&nbsp;
-        <a class="text-white btn btn-black bg-gradient" href="/Movie/GenreBasedMovies?genre=@drama">
+        <a class="text-white btn btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@drama">
             Drama
         </a>&nbsp;
         &nbsp;&nbsp;&nbsp;

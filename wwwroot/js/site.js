@@ -10,7 +10,7 @@ function AddToCart(movieId) {
 
         type: 'post',
 
-        url: '/ShoppingCart/AddToCart',
+        url: '/Cart/AddToCart',
 
         dataType: 'json',
 
