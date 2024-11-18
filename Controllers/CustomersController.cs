@@ -8,9 +8,12 @@ namespace MovieShop.Controllers
     public class CustomersController : Controller
     {
         private readonly ICustomerServices _customerService;
-        public CustomersController(ICustomerServices customerService)
+        private readonly IOrderService _orderService;
+
+        public CustomersController(ICustomerServices customerService, IOrderService orderService)
         {
             _customerService = customerService;
+            _orderService = orderService;
         }
         public IActionResult Index()
         {
@@ -42,10 +45,11 @@ namespace MovieShop.Controllers
         }
 
 
-        [HttpGet]
-        public IActionResult UpdateCustomer(string email)
+        [HttpPost]
+        public IActionResult UpdateCustomer()
         {
-           
+         
+           var email = Request.Form["Email"];
            var customer = _customerService.GetCustomerByemail(email);
             if (customer == null)
             { 
@@ -57,15 +61,17 @@ namespace MovieShop.Controllers
         }
 
 
-        [HttpPost]
+        //[HttpPost]
 
-        public IActionResult UpdateCustomer(Customer customer)
+        public IActionResult SaveCustomer(Customer customer)
         {
-            if (ModelState.IsValid) 
-            { 
+
+            if (ModelState.IsValid) { 
                 _customerService.UpdateCustomer(customer);
-                return RedirectToAction("Details", new { email = customer.EmaillAddress });
-            
+
+
+                return RedirectToAction("Success");
+
             }
 
             return View(customer);
@@ -80,6 +86,20 @@ namespace MovieShop.Controllers
 
 
 
+
+        public IActionResult CustomerEmail()
+        {
+            return View();  
+        }
+
+        [HttpPost]
+        public IActionResult CustomerOrders()
+        {
+
+            var email = Request.Form["Email"];
+            var customerOrder = _orderService.GetCustomerOrders(email);
+            return View(customerOrder);
+        }
 
 
 

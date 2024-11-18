@@ -9,7 +9,7 @@
 <hr />
  <div class="row">
     <div class="col-md-4">
-        <form asp-action="Details" asp-method="post">
+        <form asp-action="SaveCustomer" asp-method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
@@ -69,9 +69,7 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Details">Back to List</a>
-</div>
+
 
 
 

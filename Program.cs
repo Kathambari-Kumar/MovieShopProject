@@ -21,6 +21,7 @@ namespace MovieShop
             builder.Services.AddScoped<ICustomerServices, CustomerServices>();
             builder.Services.AddScoped<IMovieServices, MovieServices>();
             builder.Services.AddScoped<CartService>();
+            builder.Services.AddScoped<IOrderService, OrderService>();
             builder.Services.AddSession();
             var app = builder.Build();
 
