@@ -4,15 +4,16 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Display All Movies</h1>
+<h4>Movies List</h4>
+<hr />
 <div class="row">
 @foreach (var item in Model)
 {
-    <div class="col-md-6">
-    <partial name="_MoviePartial" model="item" />
+    <div class="col-md-4">
+    <partial name="_MoviePartial" model="item" /><br />
     </div>
 }
 </div>
 <div>
-    <a class="btn btn-danger" asp-controller="ShoppingCart" asp-action="DisplayCart">Go to Cart</a>
+    <a class="btn btn-danger" asp-controller="Cart" asp-action="DisplayCart">Go to Cart</a>
 </div>
