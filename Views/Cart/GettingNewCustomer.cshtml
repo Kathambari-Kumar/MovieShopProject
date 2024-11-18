@@ -1,0 +1,89 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<br />
+<div class="border border-3" style="width:400px; height:950px">
+
+    <form asp-action="CreatingNewCustomer" method="post" style="width:300px;padding-left:30px;">
+
+        <div class="form-group">
+            <label for="FirstName" class="control-label">
+                <strong>FirstName</strong>
+            </label>
+            <input name="FirstName" id="FirstName" class="form-control" />
+        </div>&nbsp;
+
+        <div class="form-group">
+            <label for="LastName" class="control-label">
+                <strong>LastName</strong>
+            </label>
+            <input id="LastName" name="LastName" class="form-control" />
+        </div>&nbsp;
+
+        <div class="form-group">
+            <label for="BillingAddr" class="control-label">
+                <strong>Billing Address</strong>
+            </label>
+            <input id="BillingAddr" name="BillingAddr" class="form-control" />
+        </div>&nbsp;
+
+        <div class="form-group">
+            <label for="BillingZip" class="control-label">
+                <strong>Billing Zip</strong>
+            </label>
+            <input id="BillingZip" name="BillingZip" class="form-control" />
+        </div>&nbsp;
+
+        <div class="form-group">
+            <label for="BillingCity" class="control-label">
+                <strong>Billing City</strong>
+            </label>
+            <input id="BillingCity" name="BillingCity" class="form-control" />
+        </div>&nbsp;
+
+        <div class="form-group">
+            <label for="DeliveryAddr" class="control-label">
+                <strong>Delievery Address</strong>
+            </label>
+            <input id="DeliveryAddr" name="DeliveryAddr" class="form-control" />
+        </div>&nbsp;
+
+        <div class="form-group">
+            <label for="DeliveryZip" class="control-label">
+                <strong>Delivery Zip</strong>
+            </label>
+            <input id="DeliveryZip" name="DeliveryZip" class="form-control" />
+        </div>&nbsp;
+
+        <div class="form-group">
+            <label for="DeliveryCity" class="control-label">
+                <strong>Delivery City</strong>
+            </label>
+            <input id="DeliveryCity" name="DeliveryCity" class="form-control" />
+        </div>&nbsp;
+
+        <div class="form-group">
+            <label for="EmailAddr" class="control-label">
+                <strong>Email Address</strong>
+            </label>
+            <input id="EmailAddr" name="EmailAddr" class="form-control" />
+        </div>&nbsp;
+
+        <div class="form-group">
+            <label for="PhoneNo" class="control-label">
+                <strong>Phone Number</strong>
+            </label>
+            <input id="PhoneNo" name="PhoneNo" class="form-control" />
+        </div>&nbsp;&nbsp;
+        <hr />
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" asp-controller="Cart" asp-action="CreateNewCustomer">
+                Create
+            </button>
+        </div>
+
+    </form>
+</div>

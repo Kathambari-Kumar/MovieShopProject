@@ -1,19 +1,28 @@
 ﻿@model MovieShop.Models.Db.Movie
 
-<div class="card" style="background-color:whitesmoke; width:300px; height:300px">
-    <div class="card-header bg-secondary"><h3>@Model.Title</h3></div>
-    <div class="card-body">
-        <h6 class="fw-bold">Directed By : @Model.Director</h6>
-        <h6 class="fw-bold">Release Year : @Model.Release_Year</h6>
-        <h6 class="fw-bold">Genre : @Model.Genre</h6>
-        <h6 class="fw-bold">Price : @Model.Price</h6>
-        <img src="@Model.TargetUrl" width="50" height="50" />
+<div class="card" style="width:260px;height:450px">
+    <img class="card-img-top" src="@Model.TargetUrl" style="width:260px;height:250px">
+    <div class="card-body" style="background-color:lightgray">
+        <h6 class="fw-bold"><span style="color:mediumblue">@Model.Title</span></h6>
+        <h6 class="fw-bold">@Model.Director </h6>
+        <h6 class="fw-bold">@Model.Release_Year | @Model.Genre | @Model.Price SEK</h6>
     </div>
-    <div class="card-footer">
-      <a class="btn btn-secondary" onclick="AddToCart(@Model.Id)">Add to Cart</a> 
-@*         <a class="btn btn-secondary" href="@Url.Action("AddToCart", new {id = Model.Id})">Add To Cart</a>
- *@    
+    <div class="card-footer" style="background-color:dimgrey; width:260px;height:70px">
+        <a class="btn btn-black bg-gradient text-white" onclick="AddToCart(@Model.Id)">ADD TO CART</a>
+    </div>
 </div>
-</div>
-<hr />
+
+
+<style>
+    .card {
+        font-family: 'Comic Sans MS';
+    }
+
+    .card-footer {
+        padding-left: 50px;
+        padding-top: 12px;
+    }
+</style>
+
+
 
