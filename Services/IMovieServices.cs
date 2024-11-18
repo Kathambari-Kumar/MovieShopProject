@@ -1,4 +1,5 @@
-﻿using MovieShop.Models.Db;
+﻿using Microsoft.AspNetCore.Mvc;
+using MovieShop.Models.Db;
 
 namespace MovieShop.Services
 {
@@ -19,5 +20,8 @@ namespace MovieShop.Services
 
         public List<Movie> MoviesListGenre(string genre);
 
+        public Movie GetMovieById(int id);
+
+        public void Editmovie(Movie movie);
     }
 }

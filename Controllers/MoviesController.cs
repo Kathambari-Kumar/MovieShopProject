@@ -61,5 +61,24 @@ namespace MovieShop.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var movie = _movieService.GetMovieById(id);
+            return View(movie);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Movie movie)
+        {
+            _movieService.Editmovie(movie);
+
+
+            return RedirectToAction("Details");
+        }
+
+
+
     }
 }

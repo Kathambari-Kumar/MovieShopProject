@@ -7,6 +7,7 @@ using Microsoft.Identity.Client;
 using Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore;
 using MovieShop.Data;
 using MovieShop.Models.Db;
+using MovieShop.Models.ViewModels;
 using NuGet.Protocol;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
@@ -83,6 +84,27 @@ namespace MovieShop.Services
         {
             var movies = _db.Movies.Where(m => m.Genre == genre).ToList();
             return movies;
+        }
+
+        public Movie GetMovieById(int id)
+        {
+            var movie = _db.Movies.FirstOrDefault(m => m.Id == id);
+            return movie;
+        }
+        public void Editmovie(Movie movie)
+        {
+            try
+            {
+                if (movie != null)
+                {
+                    _db.Movies.Update(movie);
+                    _db.SaveChanges();
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Field Values should not be null!");
+            }
         }
 
     }
