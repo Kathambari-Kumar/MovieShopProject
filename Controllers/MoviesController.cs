@@ -42,9 +42,9 @@ namespace MovieShop.Controllers
 
 
 
-        public IActionResult Update()
+        public IActionResult Update(Movie movie)
         {
-            var movielist = _movieService.Update();
+            var movielist = _movieService.Display();
             return View(movielist);
         }
 

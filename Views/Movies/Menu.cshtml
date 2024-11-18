@@ -9,14 +9,8 @@
     Create Movie
 </button>
 
-<button class="btn bg-black bg-gradient text-white fs-6"  asp-controller="Movies" asp-action="Create">
-   Creating Movie
-</button>
+@Html.ActionLink("Create a movie", "Create", "Movies")
 
-<button class="btn bg-black bg-gradient text-white fs-6"  asp-controller="Movies" asp-action="Update">
-    Update Movie
-</button>
+@Html.ActionLink("Update a movie", "Update", "Movies")
 
-<button class="btn bg-black bg-gradient text-white fs-6" asp-controller="Movies" asp-action="">
-    View Orders Details
-</button>
+@Html.ActionLink("Orders Details","","Movies")

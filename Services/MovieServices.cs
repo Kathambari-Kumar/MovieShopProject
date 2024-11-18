@@ -73,7 +73,7 @@ namespace MovieShop.Services
 
 
 
-        public List<Movie> Update()
+        public List<Movie> Update(Movie movie)
         {
             var movies = _db.Movies.ToList();
             return movies;
