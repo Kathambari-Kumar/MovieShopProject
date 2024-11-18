@@ -1,16 +1,17 @@
 ﻿
 @{
-    ViewData["Title"] = "EnterEmail";
+    ViewData["Title"] = "CustomerEmail";
 }
 
 <h1>Enter Customer Email</h1>
 
 
-<form asp-controller="Customers" asp-action="UpdateCustomer" method="post">
+<form asp-controller="Customers" asp-action="CustomerOrders" method="post">
     <div class="form-group">
-        <label for="Email"> Email lAddres</label>
+        <label for="Email"> Email Address</label>
         <input type="email" id="Email" name="Email" class="form-control" required />
     </div>
     <button type="submit" class="btn-success"> submit</button>
 </form>
+
 
