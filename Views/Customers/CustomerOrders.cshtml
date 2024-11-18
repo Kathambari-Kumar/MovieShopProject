@@ -1,8 +1,7 @@
 ﻿@model IEnumerable<MovieShop.Models.ViewModels.CustomerOrder>
 
-
-
-
-
+@{
+    ViewData["Tile"] = "CustomersOrders";
+}
 
 <partial  name="_CustomerOrdersPartial" model="@Model"></partial>
