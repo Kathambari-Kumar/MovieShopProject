@@ -4,97 +4,72 @@
 // Write your JavaScript code.
 
 
-    function AddToCart(movieId) {
+function AddToCart(movieId) {
 
-        $.ajax({
+    $.ajax({
 
-            type: 'post',
+        type: 'post',
 
-            url: '/ShoppingCart/AddToCart',
+        url: '/ShoppingCart/AddToCart',
 
-            dataType: 'json',
+        dataType: 'json',
 
-            data: { id: movieId },
-            success: function (count) {
-                console.log(count);
-                $('#cartCount').html(count); // The id ‘cartCount’ refers to an HTML-element
-            }
-        })
+        data: { id: movieId },
+        success: function (count) {
+            console.log(count);
+            $('#cartCount').html(count); // The id ‘cartCount’ refers to an HTML-element
+        }
+    })
+}
+
+function IncreaseCopy(movieId) {
+    var copyid = 'changecopies' + movieId;
+    var subtotalid = "changesubtotal" + movieId;
+    var priceid = "changeprice" + movieId;
+    var cartcount = Number(document.getElementById('cartCount').innerHTML);
+    var totalid = Number(document.getElementById('totalid').innerHTML);
+    var oldcopies = Number(document.getElementById(copyid).innerHTML);
+    var price = Number(document.getElementById(priceid).innerHTML);
+    var newcopies = oldcopies + 1;
+    document.getElementById(copyid).innerText = newcopies;
+    document.getElementById(subtotalid).innerText = newcopies * price;
+    document.getElementById('totalid').innerText = totalid + price;
+    document.getElementById('cartCount').innerText = cartcount + 1;
+
+}
+
+function DecreaseCopy(movieId) {
+    var copyid = 'changecopies' + movieId;
+    var subtotalid = "changesubtotal" + movieId;
+    var priceid = "changeprice" + movieId;
+    var cartcount = Number(document.getElementById('cartCount').innerHTML);
+    var totalid = Number(document.getElementById('totalid').innerHTML);
+    var rowid = "row" + movieId;
+    var oldcopies = Number(document.getElementById(copyid).innerHTML);
+    var price = Number(document.getElementById(priceid).innerHTML);
+    var newcopies = oldcopies - 1;
+    document.getElementById('cartCount').innerText = cartcount - 1;
+    if (newcopies == 0) {
+        document.getElementById(rowid).remove();
+        document.getElementById('totalid').innerText = totalid - price;
+    }
+    else {
+        document.getElementById(copyid).innerText = newcopies;
+        document.getElementById(subtotalid).innerText = newcopies * price;
+        document.getElementById('totalid').innerText = totalid - price;
     }
 
-function AddItem(MovieId) {
+}
+
+function getcustomeremail() {
+    var email = document.getElementById('customerEmail').innerHTML;
+    console.log(email);
     $.ajax({
-
-        type: 'post',
-
-        url: '/ShoppingCart/AddItem',
-
-        dataType: 'json',
-
-        data: { id: movieId },
-        success: function (count) {
-            console.log(count);
-            $('#cartCount').html(count); // The id ‘cartCount’ refers to an HTML-element
+        url: '/Cart/Checkout',
+        data: { emailid: email },
+        type: 'POST',
+        success: function (emailid) {
+            alert("checked out");
         }
-    })
-
-}
-
-function ReduceItem(MovieId) {
-    $.ajax({
-
-        type: 'post',
-
-        url: '/ShoppingCart/ReduceItem',
-
-        dataType: 'json',
-
-        data: { id: movieId },
-        success: function (count) {
-            console.log(count);
-            $('#cartCount').html(count); // The id ‘cartCount’ refers to an HTML-element
-        }
-    })
-
-}
-
-//function IncreaseCopy(noofcopies) {
-
-//    $.ajax({
-
-//        type: 'post',
-
-//        url: '/ShoppingCart/IncreaseCount',
-
-//        dataType: 'json',
-
-//        data: { noofcopies: noofcopies },
-//        success: function (copies) {
-//            console.log("no",copies);
-//            $('#increasecopies').html(copies); // The id ‘cartCount’ refers to an HTML-element
-
-//        }
-//    })
-//}
-function IncreaseCopy() {
-    var oldcopies = Number(document.getElementById('uniqueid').innerHTML);
-    var price = Number(document.getElementById('price').innerHTML);
-    var newcopies = oldcopies + 1;
-    document.getElementById('uniqueid').innerText = newcopies;
-    document.getElementById("total").innerText = newcopies * price;
-}
-
-function DecreaseCopy() {
-    var oldcopies = Number(document.getElementById('changecopies').innerHTML);
-    var price = Number(document.getElementById('price').innerHTML);
-    var newcopies = oldcopies - 1;
-    document.getElementById("changecopies").innerText = newcopies;
-    document.getElementById("total").innerText = newcopies * price;
-}
-
-function CartCount()
-{
-    var numberofitems = Number(document.getElementById('cartCount').innerHTML);
-    
-    document.getElementById("increasecopies").innerText = numberofitems;
+    });
 }

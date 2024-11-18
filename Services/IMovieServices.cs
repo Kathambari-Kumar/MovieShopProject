@@ -12,10 +12,11 @@ namespace MovieShop.Services
 
         public List<Movie> Top5Cheapest();
        
-
         public Movie GetMovieById(int id);
 
         public void UpdateMovie(Movie movie);
+
+        public List<Movie> MoviesListGenre(string genre);
 
     }
 }

@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<br />
+<br />
+<div id="placeorderdiv1" class="border border-3" style="width:450px; height:250px">
+
+    <form asp-action="Checkout" method="post">
+        <div class="mb-3" id="placeorderdiv2">
+            <strong>Registered Customer?</strong><br />
+            <label for="customerEmail">
+                <strong>Email address</strong>
+            </label>
+            <input type="email" class="form-control" name="customerEmail" id="customerEmail" />
+            <div id="emailHelp" class="form-text">just one click to get!!</div>
+            <button class="btn btn-secondary">Checkout</button>
+            <br />
+            <hr />
+            <strong>New Customer?</strong>
+            <button type="submit" class="btn btn-primary" asp-controller="Cart" asp-action="GettingNewCustomer">
+                Register
+            </button>
+        </div>
+    </form>
+</div>
+
+<style>
+    #customerEmail {
+        width: 300px;
+        height: 30PX;
+    }
+
+    #placeorderdiv1 {
+        margin-left: 100px;
+    }
+
+    #placeorderdiv2 {
+        padding-left: 30px;
+    }
+</style>

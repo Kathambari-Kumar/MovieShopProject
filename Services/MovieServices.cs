@@ -84,13 +84,11 @@ namespace MovieShop.Services
             _db.SaveChanges();
 
         }
-
-
-
-
-
-
+        public List<Movie> MoviesListGenre(string genre)
+        {
+            var movies = _db.Movies.Where(m => m.Genre == genre).ToList();
+            return movies;
+        }
     }
-
 
 }
