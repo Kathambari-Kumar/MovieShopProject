@@ -34,34 +34,22 @@ namespace MovieShop.Controllers
 
             return View(movie);
         }
-        public IActionResult Details() 
+        public IActionResult Details()
         {
-            var movielist=_movieService.Display();
+            var movielist = _movieService.Display();
+            return View(movielist);
+        }
+
+
+
+        public IActionResult Update()
+        {
+            var movielist = _movieService.Update();
             return View(movielist);
         }
 
        
-
-        [HttpGet]
-        public IActionResult Edit(int id)
-        {
-            var movie = _movieService.GetMovieById(id);
-
-            return View(movie);
-        }
-        [HttpPost]
-
-        public IActionResult Edit(Movie movie)
-        {
-
-            if (ModelState.IsValid)
-            {
-                _movieService.UpdateMovie(movie);
-                return RedirectToAction("Details");
-            }
-            return View(movie);
-
-        }
+       
 
         public IActionResult GenreBasedMovies(string genre)
         {
