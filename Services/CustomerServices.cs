@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MovieShop.Data;
 using MovieShop.Models.Db;
+using Microsoft.EntityFrameworkCore;
 
 namespace MovieShop.Services
 {
@@ -46,9 +47,22 @@ namespace MovieShop.Services
             
             var customer = _db.Customers.FirstOrDefault(c => c.EmaillAddress == email);
 
+
             return customer;
 
         }
+
+        //update customer
+
+        public void UpdateCustomer(Customer customer) 
+        {
+            _db.Update(customer);
+            _db.SaveChanges();
+
+
+        }
+
+
 
 
 
