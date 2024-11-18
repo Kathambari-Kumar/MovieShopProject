@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MovieShop.Models.Db.Movie>
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update</h1>
+@foreach (var item in Model)
+{
+    <div class="card" style="background-color:whitesmoke; width:300px; height:300px">
+        <div class="card-header bg-secondary"><h3>@item.Title</h3></div>
+        <div class="card-body">
+            <h6 class="fw-bold">Directed By : @item.Director</h6>
+            <h6 class="fw-bold">Release Year : @item.Release_Year</h6>
+            <h6 class="fw-bold">Genre : @item.Genre</h6>
+            <h6 class="fw-bold">Price : @item.Price</h6>
+            <img src="@item.TargetUrl" width="50" height="50" />
+        </div>
+        <div class="card-footer">
+            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+
+        </div>
+    </div>
+    
+}
+
+
+
+
+    
+

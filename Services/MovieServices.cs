@@ -71,19 +71,27 @@ namespace MovieShop.Services
 
         }
 
+
+
+        public List<Movie> Update()
+        {
+            var movies = _db.Movies.ToList();
+            return movies;
+        }
+
+
+
+
+
+
+
+
+        
+        
+           
+            
+
        
-        public Movie GetMovieById(int id)
-        {
-            var movie = _db.Movies.Find(id);
-            return movie;
-
-        }
-        public void UpdateMovie(Movie movie)
-        {
-            _db.Movies.Update(movie);
-            _db.SaveChanges();
-
-        }
 
 
 

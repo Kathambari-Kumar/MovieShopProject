@@ -33,19 +33,33 @@
                              <li><hr class="dropdown-divider"></li>
                              <li><a class="dropdown-item" asp-controller="Customers" asp-action="EnterEmail">Edit</a></li>
                         </ul>
+                           
                     </li>
                     <li class="nav-item dropdown">
                         <button class="btn bg-black text-white fs-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             Movie
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" asp-controller="Movies" asp-action="Create">Create</a></li>
-                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" asp-controller="Movies" asp-action="Details">Display</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" asp-controller="Movies" asp-action="Edit">Edit</a></li>
+                            <li><a class="dropdown-item" asp-controller="Movies" asp-action="Update">Edit</a></li>
                         </ul>
+
                     </li>
+
+                        <li class="nav-item dropdown">
+                            <button class="btn bg-black text-white fs-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Administrator
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-controller="Movies" asp-action="Create">Create Movie</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-controller="Movies" asp-action="Details">Display Movies</a></li>
+                                
+                               
+                            </ul>
+
+                        </li>
                     <li>
                         <a type="button" class="btn btn-outline-success text-danger" href="/cart/DisplayCart">
                         <strong>Cart Items</strong><spand id="cartCount" class="badge badge-danger">0</spand>
