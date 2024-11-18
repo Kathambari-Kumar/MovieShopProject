@@ -25,12 +25,16 @@
 <body>
 
     <!-- MenuBar-->
+    
 
-    <div id="menubar" class="bg-black">
+
+
+
+     <div id="menubar" class="bg-black">
         <nav class="navbar navbar-dark bg-black">
             <form class="form-inline">
                 <img src="~/Images/Title.jpg" style="width:100px;height:70px" />
-                <button class="btn btn-black bg-gradient text-white fs-5" href="#">Home</button>
+                <button class="btn btn-black bg-gradient text-white fs-6" href="#">Home</button>
 
                 <button class="btn bg-black bg-gradient btn-sm text-white fs-6" asp-controller="Customers" asp-action="Create">
                     Register
@@ -42,18 +46,17 @@
                 <button class="btn bg-black bg-gradient text-white fs-6" asp-controller="Movies" asp-action="Details">
                     Complete Movie List
                 </button>
-
-                <button class="btn bg-black bg-gradient text-white fs-6" asp-controller="Movies" asp-action="Create">
+               
+                <button class="btn bg-black  bg-gradient text-white fs-6" id="dropdownMenuButton" asp-controller="Movies" asp-action="Menu">
                     Administrator
                 </button>
-
                 <button id="cart" type="button" class="btn btn-black text-white text-end" href="/cart/DisplayCart">
                     Cart <span id="cartCount" class="badge badge-white bg-danger">@count</span>
                 </button>
             </form>
 
         </nav>
-    </div>
+    </div>  
     <hr />
     <!-- Body -->
     <div id="bodytop" class="text-white border border-1">

@@ -57,5 +57,9 @@ namespace MovieShop.Controllers
             return View(movies);
         }
 
+        public IActionResult Menu()
+        {
+            return View();
+        }
     }
 }
