@@ -1,4 +1,17 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@using MovieShop.Extensions;
+@using MovieShop.Services;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    var session = HttpContextAccessor.HttpContext.Session;
+    var count = 0;
+    var cartList = HttpContextAccessor.HttpContext.Session.Get<List<int>>("ShoppingCart");
+    if (cartList != null)
+    {
+        count = cartList.Count();
+    }
+}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,106 +23,87 @@
     <link rel="stylesheet" href="~/MovieShopDesign.styles.css" asp-append-version="true" />
 </head>
 <body>
-<div id="header" class="bg-black">
-    <div id="header_left" class="fn font-monospace align-text-bottom fs-2">
-        <header>
-            <img src="~/Images/HeaderLogo.jpg" width="100" height="80" />
-        </header>
-    </div>
 
-    <div id="header_right">
-        <nav class="navbar navbar-expand-md navbar-dark">
-            <div class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <a class="navbar-brand text-white fs-4" href="#">Home</a>
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <button class="btn bg-black text-white fs-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Customer
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" asp-controller="Customers" asp-action="Create">Register</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" asp-controller="Customers" asp-action="Details">Display</a></li>
-                             <li><hr class="dropdown-divider"></li>
-                             <li><a class="dropdown-item" asp-controller="Customers" asp-action="EnterEmail">Edit</a></li>
-                        </ul>
-                           
-                    </li>
-                    <li class="nav-item dropdown">
-                        <button class="btn bg-black text-white fs-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Movie
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" asp-controller="Movies" asp-action="Details">Display</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" asp-controller="Movies" asp-action="Update">Edit</a></li>
-                        </ul>
+    <!-- MenuBar-->
 
-                    </li>
+    <div id="menubar" class="bg-black">
+        <nav class="navbar navbar-dark bg-black">
+            <form class="form-inline">
+                <img src="~/Images/Title.jpg" style="width:100px;height:70px" />
+                <button class="btn btn-black bg-gradient text-white fs-5" href="#">Home</button>
 
-                        <li class="nav-item dropdown">
-                            <button class="btn bg-black text-white fs-4 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                Administrator
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" asp-controller="Movies" asp-action="Create">Create Movie</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" asp-controller="Movies" asp-action="Details">Display Movies</a></li>
-                                
-                               
-                            </ul>
+                <button class="btn bg-black bg-gradient btn-sm text-white fs-6" asp-controller="Customers" asp-action="Create">
+                    Register
+                </button>
+                <button class="btn bg-black btn-sm bg-gradient text-white fs-6" asp-controller="Customers" asp-action="EnterEmail">
+                    Update Customer
+                </button>
 
-                        </li>
-                    <li>
-                        <a type="button" class="btn btn-outline-success text-danger" href="/cart/DisplayCart">
-                        <strong>Cart Items</strong><spand id="cartCount" class="badge badge-danger">0</spand>
-                        </a>
-                    </li>
-              
-                </ul>
-            </div>
+                <button class="btn bg-black bg-gradient text-white fs-6" asp-controller="Movies" asp-action="Details">
+                    Complete Movie List
+                </button>
+
+                <button class="btn bg-black bg-gradient text-white fs-6" asp-controller="Movies" asp-action="Create">
+                    Administrator
+                </button>
+
+                <button id="cart" type="button" class="btn btn-black text-white text-end" href="/cart/DisplayCart">
+                    Cart <span id="cartCount" class="badge badge-white bg-danger">@count</span>
+                </button>
+            </form>
+
         </nav>
     </div>
-</div>
-<hr />
+    <hr />
+    <!-- Body -->
+    <div id="bodytop" class="text-white border border-1">
+        @{
+            var comedy = "Comedy";
+            var romance = "Romance";
+            var scifi = "Sci-Fi";
+            var thriller = "Thriller";
+            var horror = "Horror";
+            var drama = "Drama";
+        }
+        Search by Category : &nbsp;
 
-<div width="1024px" height="600px">
-    <div id="body_left" class="bg-black bg-opacity-75">
-
-        <div id="carouselExampleAutoplaying" class="vertical carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img id="corousel_img" src="~/Images/Avengers.jpg" class="d-block w-75" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img id="corousel_img" src="~/Images/HarryPotter.jpg" class="d-block w-75" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img id="corousel_img" src="~/Images/LoveAgain.jpg" class="d-block w-75" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img id="corousel_img" src="~/Images/WalkAlone.jpg" class="d-block w-75" alt="...">
-                </div>
-            </div>
-        </div>
-
+        <a class="btn btn-black text-white bg-gradient" href="/Movies/GenreBasedMovies?genre=@comedy">
+            Comedy
+        </a>&nbsp;
+        <a class="text-white btn btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@romance">
+            Romance
+        </a>&nbsp;
+        <a class="text-white btn btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@scifi">
+            Sci-Fi
+        </a>&nbsp;
+        <a class="text-white btn btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@thriller">
+            Thriller
+        </a>&nbsp;
+        <a class="text-white btn btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@horror">
+            Horror
+        </a>&nbsp;
+        <a class="text-white btn btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@drama">
+            Drama
+        </a>&nbsp;
+        &nbsp;&nbsp;&nbsp;
+        Expensive Customer :
     </div>
 
-            <div id="body" class="container">
-                <main role="main" class="pb-3">
-                    @RenderBody()
-                </main>
-            </div>
-            @*  <div id="body_right" style="background-color:green">right</div> *@
+    <div id="body" class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="bg-black">
+        <div id="footer_left" class="btn btn-default btn-lg text-white">
+            Copyright Interstellar Movie Shop<br />
+            2024 Some Rights Reserved.<br />
         </div>
-        <hr />
-       @*  <footer class="bg-black bg-opacity-75">
-            <div id="footer_left" class="btn btn-default btn-lg text-white">
-                Copyright Interstellar Movie Shop<br />
-                2024 Some Rights Reserved.<br />
-            </div>
-            <div id="footer_right"></div>
-        </footer> *@
+        <div id="footer_left">          
+            <img id="corousel_img" src="~/Images/böackfriday.jpg" class="d-block w-75" alt="...">                 
+        </div>
+    </footer>
+ 
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
@@ -125,74 +119,56 @@
             margin: 0 auto 0;
         } */
 
-    #header {
+    #menubar {
         width: 100%;
-        height: 80px;
+        height: 70px;
     }
 
-    #header_left {
-        width: 30%;
-        height: 80px;
-        float: left;
-    }
-
-    #header_right {
-        width: 60%;
-        height: 80px;
-        float: left;
-        padding-top: 20px;
-        padding-left: 20px;
-    }
-
-    #body_left {
-        width: 125px;
-        height: 700px;
-        float: left;
-        padding-right: 5px;
-        padding-bottom: 5px;
+    #bodytop {
+        width: 100%;
+        height: 50px;
+        padding: 5px 0px 0px 10px;
+        background-color: black;
     }
 
     #body {
-        width: 820px;
-        height: 700px;
-        float: left;
-        padding-right: 5px;
-        padding-bottom: 5px;
-    }
-
-    #body_right {
-        width: 15px;
-        height: 700px;
-        float: left;
-        padding-right: 5px;
-        padding-bottom: 5px;
-    }
-
-    footer, #footer_bg {
+        margin-bottom: 60px;
         width: 100%;
-        height: 70px;
+        height: 8´900px;
+        margin: 0 auto 0;
+    }
+
+    #cart {
+        padding-left: 130px;
+    }
+
+
+    footer {
+        width: 100%;
+        height: 100px;
         float: left;
         margin-top: 5px;
     }
 
     #footer_left {
-        width: 30%;
+        width: 40%;
         height: 100%;
         float: left;
     }
 
     #footer_right {
-        width: 60%;
+        width: 50%;
         height: 100%;
         float: right;
-        margin-right: 10px;
+        margin-left: 30px;
     }
 
     #corousel_img {
-        padding: 10px 0px 0px 15px;
+        padding: 10px 0px 0px 30px;
         height: 90px;
         width: 50px;
     }
+
 </style>
 
 @* <script>

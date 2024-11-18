@@ -79,26 +79,12 @@ namespace MovieShop.Services
             return movies;
         }
 
-
-
-
-
-
-
-
-        
-        
-           
-            
-
-       
-
-
-
-
-
+        public List<Movie> MoviesListGenre(string genre)
+        {
+            var movies = _db.Movies.Where(m => m.Genre == genre).ToList();
+            return movies;
+        }
 
     }
-
 
 }

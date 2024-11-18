@@ -17,5 +17,7 @@ namespace MovieShop.Services
 
         
 
+        public List<Movie> MoviesListGenre(string genre);
+
     }
 }

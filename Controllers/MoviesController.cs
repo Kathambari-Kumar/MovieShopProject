@@ -51,5 +51,11 @@ namespace MovieShop.Controllers
        
        
 
+        public IActionResult GenreBasedMovies(string genre)
+        {
+            var movies = _movieService.MoviesListGenre(genre);
+            return View(movies);
+        }
+
     }
 }

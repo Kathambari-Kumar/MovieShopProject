@@ -10,8 +10,11 @@ namespace MovieShop.Services
 
         public Customer GetCustomerByemail(string email);
 
+        public void UpdateCustomer(Customer customer);
 
-       
+
+
+
 
     }
 }

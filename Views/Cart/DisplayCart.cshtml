@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    double total = 0.0;
+}
+
+@model IEnumerable<MovieShop.Models.ViewModels.CartItem>
+
+<br />
+<br />
+<table class="table table-bordered">
+    <thead>
+        <tr class="table-dark text-center text-white">
+            <th class="text-center text-white" style="width:100px">Image</th>
+            <th style="width:200px">Title</th>
+            <th style="width:50px">Price</th>
+            <th style="width:40px">SubTotal</th>
+            <th style="width:70px">Copies</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            var copiesid = "changecopies" + @item.MovieId;
+            var subtotalid = "changesubtotal" + @item.MovieId;
+            var priceid = "changeprice" + @item.MovieId;
+            var rowid = "row" + @item.MovieId;
+            total = (double)total + (@item.Price * @item.Copies);
+            <tr class="fw-bold align-middle text-center" id="@rowid">
+                <td><img class="border border-2 border-secondary" src="@item.TargetURL" width="70" height="70" /></td>
+                <td style="width:150px">@item.Title</td>
+                <td style="width:50px" id="@priceid">@item.Price</td>
+                <td style="width:40px" id="@subtotalid">@(item.Price * item.Copies)</td>
+                <td nowrap="" id="td5" style="width:70px">
+                    <button class="btn btn-secondary fs-6" onclick="IncreaseCopy(@item.MovieId)">+</button>
+                    <p id='@copiesid'>@item.Copies</p>
+                    <button class="btn btn-secondary fs-6" onclick="DecreaseCopy(@item.MovieId)">-</button>
+                </td>
+                @* <td>
+            <a class="btn btn-secondary " href="/Cart/AddItem?movieid=@item.MovieId">+</a>
+            <a class="btn btn-secondary " href="/Cart/ReduceItem?movieid=@item.MovieId">-</a>
+            </td> *@
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <hr />
+    <h5>Total : </h5> <p class="fw-bold" id='totalid'>@total</p>
+</div>
+<a class="btn btn-secondary bg-black bg-gradient" asp-controller="Cart" asp-action="PlacingOrder">Place an Order</a>
+
+<style>
+    #td5 a, p {
+        /* white-space:nowrap; */
+        display: inline-block;
+        vertical-align: middle;
+    }
+</style>

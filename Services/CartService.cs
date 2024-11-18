@@ -54,11 +54,54 @@ namespace MovieShop.Services
         public List<CartItem>? DisplayCart()
         {
             var session = _httpContextAccessor.HttpContext.Session;
-            //if (_httpContextAccessor.HttpContext.Session.GetString("MovieCart") != null)
-            //{
+            if (_httpContextAccessor.HttpContext.Session.GetString("MovieCart") != null)
+            {
                 List<CartItem>? cartitems = JsonConvert.DeserializeObject<List<CartItem>>(session.GetString("MovieCart"));
                 return cartitems;
-           // }
+            }
+            else
+            {
+                List<CartItem>? cartitems = new List<CartItem>();
+                return cartitems;
+            }
+        }
+
+        public void CustomerCheckout(string email)
+        {
+            var customer = _interstellardb.Customers
+                        .Where(c => c.EmaillAddress == email)
+                        .FirstOrDefault();
+
+            Order orderobj = new Order();
+            orderobj.OrderDate = DateTime.Today.ToShortDateString();
+            orderobj.Customer = customer;
+            if (customer != null)
+            {
+                _interstellardb.Orders.Add(orderobj);
+                _interstellardb.SaveChanges();
+            }
+            var session = _httpContextAccessor.HttpContext.Session;
+            List<CartItem>? cartitems = JsonConvert.DeserializeObject<List<CartItem>>(session.GetString("MovieCart"));
+            //var order = _db.Orders.Last().;
+            foreach (var item in cartitems)
+            {
+                OrderRow Orderrow = new OrderRow();
+                var movie = _interstellardb.Movies
+                            .Where(m => m.Id == item.MovieId)
+                            .FirstOrDefault();
+                Orderrow.Movie = movie;
+                Orderrow.Price = movie.Price;
+                Orderrow.Order = orderobj;
+                _interstellardb.OrderRows.Add(Orderrow);
+                _interstellardb.SaveChanges();
+            }
+            session.Remove("MovieCart");
+            session.Remove("ShoppingCart");
+        }
+        public void AddingNewCustomer(Customer customer)
+        {
+            _interstellardb.Customers.Add(customer);
+            _interstellardb.SaveChanges();
         }
         public void IncreaseCopy(int id)
         {

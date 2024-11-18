@@ -42,17 +42,36 @@ namespace MovieShop.Controllers
         }
 
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult UpdateCustomer(string email)
         {
            
            var customer = _customerService.GetCustomerByemail(email);
+            if (customer == null)
+            { 
+                return NotFound();
+            }
+
 
          return View(customer);
         }
 
 
         [HttpPost]
+
+        public IActionResult UpdateCustomer(Customer customer)
+        {
+            if (ModelState.IsValid) 
+            { 
+                _customerService.UpdateCustomer(customer);
+                return RedirectToAction("Details", new { email = customer.EmaillAddress });
+            
+            }
+
+            return View(customer);
+
+
+        }
 
         public IActionResult Success()
         {
