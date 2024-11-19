@@ -4,6 +4,30 @@
     ViewData["Tile"] = "CustomersOrders";
 }
 
-
-
-        <partial  name="_CustomerOrdersPartial" model="@Model"></partial>
+@foreach (var item in Model)
+{
+    <h3>@item.CustomerName</h3>
+        <h6> Order Date: @item.DateOfPurchase</h6>
+        <h6> Order ID: @item.OrderID</h6>
+        <h6> Total Movies Ordered: @item.TotalOrderCount</h6>
+        <h6> Total Cost: @item.TotalOrderCost</h6>
+        <h4> Movies List</h4>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th style="width:50px"> Title </th>
+                <th style="width:30px"> Price[SEK]</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var movie in item.Movies)
+                {
+                <tr style="width:50px">
+                    <td>@movie.Title</td>
+                    <td>@movie.Price</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    <hr />
+}
