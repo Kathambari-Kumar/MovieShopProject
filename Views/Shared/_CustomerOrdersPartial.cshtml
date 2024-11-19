@@ -1,29 +1,42 @@
 ﻿@model IEnumerable<MovieShop.Models.ViewModels.CustomerOrder>
 
-    <h4> Order for: @Model.FirstOrDefault().CustomerName   </h4>
 
-    <p> Total orders: @Model.FirstOrDefault().TotalOrderCount</p>
+    <h1>Customer: @Model.FirstOrDefault().CustomerName</h1>
+
+ @foreach(var order in Model){
+      <div class="order">
+          <h3> Order Date: @order.DateOfPurchase</h3>
+          <p> Total Movies Ordered: @order.TotalOrderCount</p>
+          <p> Total Cost: @order.TotalOrderCost</p>
+          <h4> Movies</h4>
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th> Title </th>
+                      <th> Price</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  @foreach( var movie in order.Movies)
+                  {
+                      <tr>
+                          <td>
+                              @movie.Title
+                          </td>
+                          <td>
+                              @movie.Price
+                          </td>
+                      </tr>
+
+                  }
+              </tbody>
+
+          </table>
+
+      </div>
+    
+      }
+  
+
    
 
-<table class="table">
-    <thead>
-        <tr>
-            <th> Movies Title</th>
-            <th> Order Date </th>
-            <th> Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach( var order in Model)
-        {
-            <tr>
-                <td>@order.MovieTitle</td>
-                <td>@order.DateOfPurchase</td>
-                <td>@order.Price</td>
-            </tr>
-
-        }
-    </tbody>
-
-
-</table>

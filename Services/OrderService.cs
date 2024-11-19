@@ -20,34 +20,30 @@ namespace MovieShop.Services
 
         public List<CustomerOrder> GetCustomerOrders(string email) 
         {
-            var customer = _db.Customers
-                                 .Include(c => c.OrderList)
-                                 .ThenInclude(o => o.OrderRowList)
-                                 .ThenInclude(or => or.Movie)
-                                 .SingleOrDefault(c => c.EmaillAddress == email);
 
-            if (customer == null) 
-            {
-                return null;
-            
-            }
+            var customerOrders = _db.Orders
+                                    .Include(o => o.Customer)
+                                    .Include(o => o.OrderRowList)
+                                    .ThenInclude(or => or.Movie)
+                                    .Where(o => o.Customer.EmaillAddress == email)
+                                    .Select( o => new CustomerOrder
+                                    {
+                                        Firstname = o.Customer.Firstname,
+                                        Lastname = o.Customer.Lastname,
+                                        DateOfPurchase = o.OrderDate,
+                                        Movies = o.OrderRowList.Select(or => new MovieViewModel
+                                        {
+                                            Title = or.Movie.Title,
+                                            Price = or.Movie.Price
 
-            //map to customer view model
 
-            var customerOrders = customer.OrderList
-                .SelectMany(o => o.OrderRowList.Select(or => new CustomerOrder
-                {
-                    Firstname = customer.Firstname,
-                    Lastname = customer.Lastname,
-                    MovieTitle = or.Movie.Title,
-                    TotalOrderCount = customer.OrderList.Count(),
-                    Price = or.Movie.Price,
-                    DateOfPurchase = or.Order.OrderDate
-                  
+                                        }).ToList(),
+                                        TotalOrderCost = o.OrderRowList.Sum(or => or.Movie.Price),
+                                        TotalOrderCount = o.OrderRowList.Count()
 
-                }
-                )).ToList();
-            
+                                    }).ToList();
+           
+         
             return customerOrders;
         }
 

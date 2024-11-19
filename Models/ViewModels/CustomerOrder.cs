@@ -10,13 +10,15 @@ namespace MovieShop.Models.ViewModels
 
         public string CustomerName =>$"{Firstname} {Lastname}";
 
-        public string MovieTitle { get; set; } = string.Empty;
+       
 
         public string DateOfPurchase { get; set; } = string.Empty;
 
-        public double Price { get; set; } //price of individual movie
 
-       
+        public List<MovieViewModel>? Movies { get; set; }
+
+
+        public double TotalOrderCost { get; set; }
 
         public int TotalOrderCount { get; set; }
 
