@@ -8,6 +8,7 @@ namespace MovieShop.Models.ViewModels
 
         public string Lastname { get; set; } = string.Empty ;
 
+        public int OrderID { get; set; }    
         public string CustomerName =>$"{Firstname} {Lastname}";
 
        
