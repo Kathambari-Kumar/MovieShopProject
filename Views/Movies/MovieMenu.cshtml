@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+Movie Menu
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div style="width:900px;height:15px;background-color:darkgoldenrod"></div>
+
+<div id="messagediv" class="align-content-center text-white">
+    Administrator Functionalities for Movie Table
+    <div id="innerdiv">
+        <a class="btn bg-gradient text-white fw-bold" asp-controller="Movies" asp-action="Create">
+            Create Movie
+        </a>
+        <a class="btn bg-gradient text-white fw-bold" asp-controller="Movies" asp-action="Update">
+            Update Movie
+        </a>
+        <a class="btn bg-gradient text-white fw-bold" asp-controller="Movies" asp-action="OrderDetails">
+            View Orders
+        </a>
+    </div>
+</div>
+
+<div style="width:900px;height:15px;background-color:darkgoldenrod"></div>
+<br />
+<br />
+<br />
+@* @Html.ActionLink("Create a movie", "Create", "Movies")
+
+@Html.ActionLink("Update a movie", "Update", "Movies")
+
+@Html.ActionLink("Orders Details","","Movies") *@
+
+<style>
+    #messagediv {
+        background-color: black;
+        width: 900px;
+        height: 70px;
+        margin-left: 0px;
+        padding-left: 5px;
+        font-weight: bold;
+    }
+
+    #innerdiv {
+        margin-left: 500px;
+    }
+
+    #img1 {
+        margin-left: 300px;
+    }
+</style>
