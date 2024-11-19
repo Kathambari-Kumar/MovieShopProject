@@ -1,4 +1,5 @@
 ﻿using MovieShop.Models.Db;
+using MovieShop.Models.ViewModels;
 
 
 namespace MovieShop.Services
@@ -11,6 +12,8 @@ namespace MovieShop.Services
         public Customer GetCustomerByemail(string email);
 
         public void UpdateCustomer(Customer customer);
+
+        public List<CustomerOrder> GetCustomerOrders(string email);
 
 
 
