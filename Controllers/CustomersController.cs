@@ -8,12 +8,12 @@ namespace MovieShop.Controllers
     public class CustomersController : Controller
     {
         private readonly ICustomerServices _customerService;
-        private readonly IOrderService _orderService;
+       
 
-        public CustomersController(ICustomerServices customerService, IOrderService orderService)
+        public CustomersController(ICustomerServices customerService)
         {
             _customerService = customerService;
-            _orderService = orderService;
+           
         }
         public IActionResult Index()
         {
@@ -107,7 +107,7 @@ namespace MovieShop.Controllers
         {
 
             var email = Request.Form["Email"];
-            var customerOrder = _orderService.GetCustomerOrders(email);
+            var customerOrder = _customerService.GetCustomerOrders(email);
             return View(customerOrder);
         }
 
