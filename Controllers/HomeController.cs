@@ -81,6 +81,30 @@ namespace MovieShop.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        [HttpPost]
+        public IActionResult PasswordVerification()
+        {
+            var password = Request.Form["Password"];
+            if (password =="#m#k#p")
+            {
+                return RedirectToAction("MovieMenu","Movies");
+            }
+            else
+            {
+                return RedirectToAction("PasswordFailed");
+            }
+           
 
+        }
+        public IActionResult GetPassword()
+        {
+
+            return View();
+        }
+        public IActionResult PasswordFailed()
+        {
+
+            return View();
+        }
     }
 }
