@@ -36,14 +36,11 @@ namespace MovieShop.Services
                                         {
                                             Title = or.Movie.Title,
                                             Price = or.Movie.Price
-
-
                                         }).ToList(),
                                         TotalOrderCost = o.OrderRowList.Sum(or => or.Movie.Price),
                                         TotalOrderCount = o.OrderRowList.Count()
 
                                     }).ToList();
-           
          
             return customerOrders;
         }

@@ -12,7 +12,7 @@ namespace MovieShop.Models.ViewModels
         public string CustomerName =>$"{Firstname} {Lastname}";
 
        
-
+        public int OrderID { get; set; }
         public string DateOfPurchase { get; set; } = string.Empty;
 
 

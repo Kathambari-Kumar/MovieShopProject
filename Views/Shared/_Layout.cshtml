@@ -34,13 +34,13 @@
         <nav class="navbar navbar-dark bg-black">
             <form class="form-inline">
                 <img src="~/Images/Title.jpg" style="width:100px;height:70px" />
-                <button class="btn btn-black bg-gradient text-white fs-6" href="#">Home</button>
+                <button class="btn btn-black bg-gradient text-white fs-6" asp-controller="Home" asp-action="Index">Home</button>
 
                 <button class="btn bg-black bg-gradient btn-sm text-white fs-6" asp-controller="Customers" asp-action="Create">
                     Register
                 </button>
                 <button class="btn bg-black btn-sm bg-gradient text-white fs-6" asp-controller="Customers" asp-action="CustomerMenu">
-                    Update/Register Customer
+                    Update/View Order Customer
                 </button>
 
                 <button class="btn bg-black bg-gradient text-white fs-6" asp-controller="Movies" asp-action="Details">
