@@ -57,7 +57,7 @@ namespace MovieShop.Controllers
             return View(movies);
         }
 
-        public IActionResult Menu()
+        public IActionResult MovieMenu()
         {
             return View();
         }
@@ -78,7 +78,14 @@ namespace MovieShop.Controllers
             return RedirectToAction("Details");
         }
 
+        public IActionResult UpdateSuccessMessage()
+        {
+            return View();
+        }
 
-
+        public IActionResult CreateSuccessMessage()
+        {
+            return View();
+        }
     }
 }

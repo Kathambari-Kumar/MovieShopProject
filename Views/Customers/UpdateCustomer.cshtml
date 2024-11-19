@@ -5,69 +5,103 @@
     ViewData["Title"] = "UpdateCustomer";
 }
 
-<h2>Edit Customer</h2>
-<hr />
- <div class="row">
+<br />
+<br />
+<div style="width:900px;height:25px;background-color:dimgray; color:white;font-weight:bold">
+    Create Movie Details
+</div>
+<br />
+
+<div class="row">
     <div class="col-md-4">
-        <form asp-action="SaveCustomer" asp-method="post">
+        <form asp-action="Details" asp-method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Firstname" class="control-label"></label>
+                <strong>
+                    <label asp-for="Firstname" class="control-label"></label>
+                </strong>
                 <input asp-for="Firstname" class="form-control" value="@Model.Firstname" />
-                <span asp-validation-for="Firstname" class="text-danger" ></span>
+                <span asp-validation-for="Firstname" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Lastname" class="control-label"></label> 
+                <strong>
+                    <label asp-for="Lastname" class="control-label"></label>
+                </strong>
                 <input asp-for="Lastname" class="form-control" value="@Model.Lastname" />
-                <span asp-validation-for="Lastname" class="text-danger" ></span>
+                <span asp-validation-for="Lastname" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BillingAddress" class="control-label"></label>
+                <strong>
+                    <label asp-for="BillingAddress" class="control-label"></label>
+                </strong>
                 <input asp-for="BillingAddress" class="form-control" value="@Model.BillingAddress" />
-                <span asp-validation-for="BillingAddress" class="text-danger" ></span>
+                <span asp-validation-for="BillingAddress" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BillingZip" class="control-label"></label>
-                <input asp-for="BillingZip" class="form-control" value="@Model.BillingZip"/>
+                <strong>
+                    <label asp-for="BillingZip" class="control-label"></label>
+                </strong>
+                <input asp-for="BillingZip" class="form-control" value="@Model.BillingZip" />
                 <span asp-validation-for="BillingZip" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BillingCity" class="control-label"></label>
+                <strong>
+                    <label asp-for="BillingCity" class="control-label"></label>
+                </strong>
                 <input asp-for="BillingCity" class="form-control" value="@Model.BillingCity" />
-                <span asp-validation-for="BillingCity" class="text-danger" ></span>
+                <span asp-validation-for="BillingCity" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DeliveryAddress" class="control-label"></label>
                 <input asp-for="DeliveryAddress" class="form-control" value="@Model.DeliveryAddress" />
-                <span asp-validation-for="DeliveryAddress" class="text-danger" ></span>
+                <span asp-validation-for="DeliveryAddress" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DeliveryZip" class="control-label"></label>
+                <strong>
+                    <label asp-for="DeliveryZip" class="control-label"></label>
+                </strong>
                 <input asp-for="DeliveryZip" class="form-control" value="@Model.DeliveryZip" />
-                <span asp-validation-for="DeliveryZip" class="text-danger" ></span>
+                <span asp-validation-for="DeliveryZip" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DeliveryCity" class="control-label"></label>
+                <strong>
+                    <label asp-for="DeliveryCity" class="control-label"></label>
+                </strong>
                 <input asp-for="DeliveryCity" class="form-control" value="@Model.DeliveryCity" />
-                <span asp-validation-for="DeliveryCity" class="text-danger" ></span>
+                <span asp-validation-for="DeliveryCity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmaillAddress" class="control-label"></label>
+                <strong>
+                    <label asp-for="EmaillAddress" class="control-label"></label>
+                </strong>
                 <input asp-for="EmaillAddress" class="form-control" value="@Model.EmaillAddress" />
                 <span asp-validation-for="EmaillAddress" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PhoneNo" class="control-label"></label>
+                <strong>
+                    <label asp-for="PhoneNo" class="control-label"></label>
+                </strong>
                 <input asp-for="PhoneNo" class="form-control" value="@Model.PhoneNo" />
-                <span asp-validation-for="PhoneNo" class="text-danger" ></span>
+                <span asp-validation-for="PhoneNo" class="text-danger"></span>
             </div>
+            <hr />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Update" class="btn bg-black bg-gradient text-white fs-6" />
             </div>
         </form>
     </div>
 </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}
+
+
+
 
 
 
