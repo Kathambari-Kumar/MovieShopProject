@@ -1,15 +1,13 @@
-﻿@model IEnumerable<MovieShop.Models.ViewModels.CustomerOrder>
+﻿@* @model MovieShop.Models.ViewModels.CustomerOrder
 
-
-    <h1>Customer: @Model.FirstOrDefault().CustomerName</h1>
-
- @foreach(var order in Model){
-      <div class="order">
-          <h3> Order Date: @order.DateOfPurchase</h3>
-          <p> Total Movies Ordered: @order.TotalOrderCount</p>
-          <p> Total Cost: @order.TotalOrderCost</p>
+    
+<h1>Customer: @Model.CustomerName</h1>
+    <div class="order">
+          <h6> Order Date: @Model.DateOfPurchase</h6>
+          <h6> Total Movies Ordered: @Model.TotalOrderCount</h6>
+          <h6> Total Cost: @Model.TotalOrderCost</h6>
           <h4> Movies</h4>
-          <table class="table">
+          <table class="table table-striped">
               <thead>
                   <tr>
                       <th> Title </th>
@@ -40,3 +38,4 @@
 
    
 
+ *@

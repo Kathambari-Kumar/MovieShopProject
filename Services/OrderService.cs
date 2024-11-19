@@ -31,18 +31,16 @@ namespace MovieShop.Services
                                         Firstname = o.Customer.Firstname,
                                         Lastname = o.Customer.Lastname,
                                         DateOfPurchase = o.OrderDate,
+                                        OrderID = o.Id,
                                         Movies = o.OrderRowList.Select(or => new MovieViewModel
                                         {
                                             Title = or.Movie.Title,
                                             Price = or.Movie.Price
-
-
                                         }).ToList(),
                                         TotalOrderCost = o.OrderRowList.Sum(or => or.Movie.Price),
                                         TotalOrderCount = o.OrderRowList.Count()
 
                                     }).ToList();
-           
          
             return customerOrders;
         }

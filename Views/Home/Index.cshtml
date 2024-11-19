@@ -4,7 +4,12 @@
     ViewData["Title"] = "Index";
 } 
 <br />
-<div class="text-white bg-dark" height="20px">Top 5 Newest Movies</div>
+<div class="text-white bg-dark fw-bold" height="20px">
+    Top 5 Newest Movies
+    <div id="div2" class="align-content-md-end fw-bold">
+        Popular Movie : @Model.PopularMovie.Title
+    </div>
+</div>
 <br />
 <div class="movie-section" height="250px">
     @foreach(var movie in Model.Top5Newest)
@@ -24,7 +29,11 @@
 </div>
 <br /><hr />
 
-<div class="text-white bg-dark" height="20px">Top 5 Oldest Movies</div>
+<div class="text-white bg-dark fw-bold" height="20px">Top 5 Oldest Movies
+    <div id="div2" class="align-content-md-end fw-bold">
+        Interstellar Movie Shop
+    </div>
+</div>
 <br />
 <div class="movie-section" height="300px">
     @foreach (var movie in Model.Top5Oldet)
@@ -45,7 +54,13 @@
 
 <br />
 <hr />
-<div class="text-white bg-dark" height="20px">Top 5 Chepest Movies</div>
+<div class="text-white bg-dark fw-bold" height="30px">
+    Top 5 Chepest Movies
+    <div id="div2"class="align-content-md-end fw-bold">
+    Top Customer : 
+    @Model.TopCustomer.Firstname @Model.TopCustomer.Lastname
+    </div>
+</div>
 <br />
 <div class="movie-section" height="300px">
     @foreach (var movie in Model.Top5Cheapest)
@@ -66,4 +81,13 @@
 <br />
 <hr />
 
-
+<style>
+    #div1{
+        float:left;
+    }
+    #div2 {
+        float:right;
+        color:cyan;
+        padding-right:3px;
+    }
+</style>
