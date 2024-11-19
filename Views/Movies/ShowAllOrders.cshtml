@@ -3,7 +3,49 @@
     ViewData["Title"] = "ShowAllOrders";
 }
 
-<h2>List of Orders</h2>
+
+<br />
+<br />
+<div style="width:900px;height:25px;background-color:dimgray; color:white;font-weight:bold">
+    Interstellar Movie Shop Order Details
+</div>
+<br />
+<table class="table table-bordered table-striped table-sm align-middle">
+    <tr>
+        <th style="width:20px">Order ID</th>
+        <th style="width:70px">Order Date</th>
+        <th style="width:60px">Order Count</th>
+        <th style="width:130px">Customer Name</th>
+        <th style="width:200px">Movie Title/Price</th>
+        <th style="width:70px">Order Amount</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.OrderId</td>
+            <td>@item.DateOfPurchase</td>
+            <td>@item.TotalOrderCount</td>
+            <td>@item.CustomerName</td>
+            <td>
+                @foreach (var movie in item.Movies)
+                {
+                    <p>
+                        @movie.Title
+                        <span style="color:blue">
+                            [ SEK @movie.Price ]
+                        </span>
+                    </p>
+
+                    <hr />
+                }
+            </td>
+            <td>@item.TotalOrderCost</td>
+        </tr>
+    }
+</table>
+
+@* <h2>List of Orders</h2>
 
 @foreach (var order in Model)
 {
@@ -41,3 +83,4 @@
     </div>
 
 }
+ *@
