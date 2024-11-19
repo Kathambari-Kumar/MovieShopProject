@@ -53,3 +53,29 @@ h1{
     text-align:center;
 }
 
+.order
+{
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+
+}
+.order h2, .order p{
+    margin: 5px 0px;
+}
+.table{
+    width: 100%;
+    margin-top: 10px;
+
+}
+.table th, .table td{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align:left;
+
+}
+.table th{
+    background-color: #f2f2f2;
+}
