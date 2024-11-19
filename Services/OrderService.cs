@@ -31,6 +31,7 @@ namespace MovieShop.Services
                                         Firstname = o.Customer.Firstname,
                                         Lastname = o.Customer.Lastname,
                                         DateOfPurchase = o.OrderDate,
+                                        OrderID = o.Id,
                                         Movies = o.OrderRowList.Select(or => new MovieViewModel
                                         {
                                             Title = or.Movie.Title,
