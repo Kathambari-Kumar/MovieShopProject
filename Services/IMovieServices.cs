@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MovieShop.Models.Db;
+using MovieShop.Models.ViewModels;
 
 namespace MovieShop.Services
 {
@@ -24,7 +25,7 @@ namespace MovieShop.Services
 
         public void Editmovie(Movie movie);
 
-        public List<Order> GetAllOrders();
+        public List<AdminOrder> GetAllOrders();
 
     }
 }

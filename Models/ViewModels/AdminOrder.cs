@@ -2,15 +2,24 @@
 
 namespace MovieShop.Models.ViewModels
 {
-    public class AdminOrder
+    public class AdminOrder 
     {
-        public string MovieTitle { get; set; } = string.Empty;
+        public string Firstname { get; set; } = string.Empty;
+
+        public string Lastname { get; set; } = string.Empty;
+
+        public string CustomerName => $"{Firstname} {Lastname}";
 
         public string DateOfPurchase { get; set; } = string.Empty ;
 
-        public Movie? movie { get; set; } 
+        public int OrderId { get; set; }
 
-        public List<Order> OrderList { get; set; } = new List<Order>();
+        public double TotalOrderCost { get; set; }
+
+        public int TotalOrderCount { get; set; }
+
+
+        public List<MovieViewModel>? Movies { get; set; } 
 
     }
 }
