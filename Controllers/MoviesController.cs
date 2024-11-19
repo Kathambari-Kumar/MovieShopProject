@@ -87,5 +87,12 @@ namespace MovieShop.Controllers
         {
             return View();
         }
+
+        public IActionResult ShowAllOrders()
+        {
+            var orders = _movieService.GetAllOrders();
+            return View(orders);
+        }
+
     }
 }

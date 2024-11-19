@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Identity.Client;
 using Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore;
 using MovieShop.Data;
@@ -106,6 +107,30 @@ namespace MovieShop.Services
                 Console.WriteLine("Field Values should not be null!");
             }
         }
+
+        public List<Order> GetAllOrders()
+        { 
+          var orderList = _db.OrderRows
+                         .Join(
+                                _db.Movies,
+                                m => m.Id,
+                                 o => o.Id,
+                            (o,m) =>new Order()
+                            {
+                                Id = m.Id,
+                                OrderRowList = m.OrderRowList,
+                                OrderDate = m.Title,
+
+
+                            })
+                         .ToList();
+                              
+
+               return orderList;
+        
+        }
+       
+       
 
     }
 
