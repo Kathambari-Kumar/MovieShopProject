@@ -23,5 +23,8 @@ namespace MovieShop.Services
         public Movie GetMovieById(int id);
 
         public void Editmovie(Movie movie);
+
+        public List<Order> GetAllOrders();
+
     }
 }
