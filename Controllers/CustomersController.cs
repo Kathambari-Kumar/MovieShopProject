@@ -84,6 +84,16 @@ namespace MovieShop.Controllers
             return View();
         }
 
+        public IActionResult CustCreateSuccessMessage()
+        {
+            return View();
+        }
+        public IActionResult CustomerMenu()
+        {
+            return View();
+        }
+
+
 
 
 
