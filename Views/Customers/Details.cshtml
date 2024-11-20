@@ -4,12 +4,27 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Customer Details</h1>
-<div class="row">
-@foreach (var item in Model) {
-        <div class="col-md-6">
-       <partial name="_CustomerPartial" model="item" />
-        </div>
- }
+<br />
+<br />
+<div style="width:900px;height:25px;background-color:dimgray; color:white;font-weight:bold">
+    Customer Details
 </div>
+<br />
+<table class="table table-bordered table-striped table-sm align-middle">
+    <tr class="align-middle">
+        <th class="fw-bold" style="width:150px">Customer Name</th>
+        <th class="fw-bold" style="width:150px">Delivery Address</th>
+        <th class="fw-bold" style="width:60px">Delivery Zip</th>
+        <th class="fw-bold" style="width:150px">Billing Address</th>
+        <th class="fw-bold" style="width:60px">Billing Zip</th>
+        <th class="fw-bold" style="width:70px">Email Address</th>
+        <th class="fw-bold" style="width:70px">Phone Number</th>
+    </tr>
 
+@foreach (var item in Model) {
+       <tr>
+       <partial name="_CustomerPartial" model="item" />
+        </tr>
+ }
+</table>
+    
