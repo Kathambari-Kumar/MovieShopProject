@@ -1,6 +1,14 @@
 ﻿@model MovieShop.Models.Db.Customer;
 
-<div class="card" style="background-color:whitesmoke; width:400px; height:200px">
+<td>@Model.Firstname @Model.Lastname</td>
+<td>@Model.BillingAddress @Model.BillingCity</td>
+<td>@Model.BillingZip</td>
+<td>@Model.DeliveryAddress @Model.DeliveryCity</td>
+<td>@Model.DeliveryZip</td>
+<td>@Model.EmaillAddress</td>
+<td>@Model.PhoneNo</td>
+
+@* <div class="card" style="background-color:whitesmoke; width:400px; height:200px">
     <div class="card-header bg-secondary"></div>
     <div class="card-body">
         <h6 class="fw-bold">Name : @Model.Firstname @Model.Lastname</h6>
@@ -39,4 +47,4 @@
     float : right;
     padding-left:10px;
 }
-</style>
+</style> *@

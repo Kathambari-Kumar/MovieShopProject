@@ -16,7 +16,7 @@
 <div style="width:900px;height:15px;background-color:darkgoldenrod"></div>
 
 <div id="messagediv" class="align-content-center text-white">
-    Administrator Functionalities for Movie Table
+    Administrator Functionalities
     <div id="innerdiv">
         <a class="btn bg-gradient text-white fw-bold" asp-controller="Movies" asp-action="Create">
             Create Movie
@@ -26,6 +26,9 @@
         </a>
         <a class="btn bg-gradient text-white fw-bold" asp-controller="Movies" asp-action="ShowAllOrders">
             View Orders
+        </a>
+        <a class="btn bg-gradient text-white fw-bold" asp-controller="Customers" asp-action="Details">
+            Customer Details
         </a>
     </div>
 </div>
@@ -51,7 +54,7 @@
     }
 
     #innerdiv {
-        margin-left: 500px;
+        margin-left: 350px;
     }
 
     #img1 {
