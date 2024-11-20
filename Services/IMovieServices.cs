@@ -17,7 +17,11 @@ namespace MovieShop.Services
 
         public List<Movie> Update(Movie movie);
 
-        
+
+        public List<Movie> GetPaginatedMovies(int page, int length);
+
+
+
 
         public List<Movie> MoviesListGenre(string genre);
 

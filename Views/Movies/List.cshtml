@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MovieShop.Models.Db.Movie>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+
+<br />
+<br />
+<div style="width:900px;height:25px;background-color:dimgray; color:white;font-weight:bold">
+    Movie List
+</div>
+<br />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <partial name="_MoviePartial" model="item" /><br />
+        </div>
+    }
+</div>
+<div>
+    <a class="btn btn-danger" asp-controller="Cart" asp-action="DisplayCart">Go to Cart</a>
+</div>
+
+
+<div>
+    @if (ViewBag.Page > 1)
+    {
+        <a href="?page=@(ViewBag.Page - 1)&length=@ViewBag.Length"> Previous </a>
+    }
+
+    <span>
+        Page @ViewBag.Page of
+        @(Math.Ceiling((decimal)ViewBag.TotalCount / ViewBag.Length))
+    </span>
+
+    @if(ViewBag.Page < 
+    Math.Ceiling((decimal)ViewBag.TotalCount / ViewBag.Length))
+    {
+        <a href="?page=@(ViewBag.Page + 1)&length =@ViewBag.Length"> Next </a>
+
+    }
+   
+
+   
+</div>
+
+
