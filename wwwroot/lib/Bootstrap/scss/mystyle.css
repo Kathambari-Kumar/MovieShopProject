@@ -1,0 +1,86 @@
+﻿body {
+    width: 1024px;
+    height: 100%;
+    margin : 0 auto 0;
+}
+#header {
+    width : 1024px;
+    height :110px;
+}
+#header_left {
+    width: 320px;
+    height: 110px;
+    float: left;
+}
+#header_right {
+    width: 700px;
+    height: 110px;
+    float: left;
+    padding-top: 44px;
+    padding-left : 20px;
+}
+#container1 {
+    width: 50%;
+    height: 200px;
+    padding-top: 30px;
+    padding-bottom:0px;
+}
+#carouselExampleAutoplaying {
+    width: 700px;
+    height: 190px;
+    padding-left: 400px;
+    padding-top: 0px;
+}
+
+.rounded float-start {
+    float : left;
+}
+
+#split {
+    width : 1024px;
+    height : 600px;
+}
+#sidebar {
+    width: 200px;
+    height : 100%;
+    padding-top : 30px;
+    float: left;
+}
+#content {
+    width: 800px;
+    height: 100%;
+    padding-top: 10px;
+    float: left;
+}
+#form_image{
+    width : 1024px;
+    height : 400px;
+}
+#form_container {
+    width: 600px;
+    height: 100%;
+    float: left;
+}
+#image_container {
+    width: 310px;
+    height: 100%;
+    float: right;
+    align-content: center;
+}
+
+footer {
+    width: 1024px;
+    height: 130px;
+}
+
+#footer_left {
+    width: 500px;
+    height: 100%;
+    float: left;
+}
+#footer_right {
+    width: 500px;
+    height: 100%;
+    float: right;
+    margin-right:10px;
+}
