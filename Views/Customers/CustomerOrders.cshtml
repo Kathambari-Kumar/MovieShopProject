@@ -4,5 +4,6 @@
     ViewData["Tile"] = "CustomersOrders";
 }
 
+ <h3 style="text-align:center"> Customer: @Model.FirstOrDefault()?.CustomerName</h3>
     <partial name ="_CustomerOrdersPartial" model="Model"></partial>
 
