@@ -35,7 +35,6 @@ function IncreaseCopy(movieId) {
     document.getElementById(subtotalid).innerText = newcopies * price;
     document.getElementById('totalid').innerText = totalid + price;
     document.getElementById('cartCount').innerText = cartcount + 1;
-
 }
 
 function DecreaseCopy(movieId) {
@@ -58,9 +57,16 @@ function DecreaseCopy(movieId) {
         document.getElementById(subtotalid).innerText = newcopies * price;
         document.getElementById('totalid').innerText = totalid - price;
     }
-
 }
 
+function yesfunction() {
+    var addr = document.forms["createform"]["billingaddr"].value;
+    var zip = document.forms["createform"]["billingzip"].value;
+    var city = document.forms["createform"]["billingcity"].value;
+    document.forms["createform"]["deliveryaddr"].value = addr;
+    document.forms["createform"]["deliveryzip"].value = zip;
+    document.forms["createform"]["deliverycity"].value = city;
+}
 function getcustomeremail() {
     var email = document.getElementById('customerEmail').innerHTML;
     console.log(email);
