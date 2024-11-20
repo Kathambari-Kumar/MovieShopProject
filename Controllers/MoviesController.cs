@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
+using MovieShop.Data;
 using MovieShop.Models.Db;
 using MovieShop.Services;
 using System.Dynamic;
@@ -10,11 +11,13 @@ namespace MovieShop.Controllers
 
         private readonly IMovieServices _movieService;
         private readonly ICustomerServices _customerService;
+        private readonly interstellardb _db;
 
-        public MoviesController(IMovieServices movieService, ICustomerServices customerService)
+        public MoviesController(IMovieServices movieService, ICustomerServices customerService, interstellardb db)
         {
             _movieService = movieService;
             _customerService = customerService;
+            _db = db;
         }
         public IActionResult Index()
         {
@@ -92,6 +95,21 @@ namespace MovieShop.Controllers
         {
             var orders = _movieService.GetAllOrders();
             return View(orders);
+        }
+
+
+        public IActionResult List(int length = 6, int page = 1)
+        {
+
+            //fetch list of movies
+
+            var moviesList = _movieService.GetPaginatedMovies(length, page);
+            ViewBag.Page = page;
+            ViewBag.Length = length;
+            ViewBag.TotalCount = _db.Movies.Count();
+
+            return View(moviesList);
+
         }
 
     }

@@ -109,27 +109,7 @@ namespace MovieShop.Services
             }
         }
 
-        //public List<Order> GetAllOrders()
-        //{
-        //    var orderList = _db.OrderRows
-        //                   .Join(
-        //                          _db.Movies,
-        //                          m => m.Id,
-        //                           o => o.Id,
-        //                      (o, m) => new Order()
-        //                      {
-        //                          Id = m.Id,
-        //                          OrderRowList = m.OrderRowList,
-        //                          OrderDate = m.Title,
-
-
-        //                      })
-        //                   .ToList();
-
-
-        //    return orderList;
-
-        //}
+       
 
         public List<AdminOrder> GetAllOrders()
         {
@@ -160,6 +140,29 @@ namespace MovieShop.Services
             return ordersList;
         }
 
+
+
+
+        public List<Movie> GetPaginatedMovies(int length, int page)
+        {
+           //calculate number of items to skip
+
+            int skip = (page-1) * length;
+
+            //query database with skip and take
+
+            var movies = _db.Movies
+                         .OrderBy(m => m.Id)
+                         .Skip(skip)
+                         .Take(length)
+                         .ToList();
+
+            return movies;
+                        
+                         
+
+
+        }
 
 
     }
