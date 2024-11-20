@@ -19,31 +19,32 @@
         </div>
     }
 </div>
-<div>
-    <a class="btn btn-danger" asp-controller="Cart" asp-action="DisplayCart">Go to Cart</a>
-</div>
 
-
+<hr />
 <div>
     @if (ViewBag.Page > 1)
     {
-        <a href="?page=@(ViewBag.Page - 1)&length=@ViewBag.Length"> Previous </a>
+        <a class="btn btn-sm btn-secondary" href="?page=@(ViewBag.Page - 1)&length=@ViewBag.Length"> Previous </a>
     }
 
-    <span>
-        Page @ViewBag.Page of
+    <span class="fw-bold text-bg-info">
+        &nbsp;&nbsp; Page @ViewBag.Page of
         @(Math.Ceiling((decimal)ViewBag.TotalCount / ViewBag.Length))
-    </span>
+    </span> &nbsp;&nbsp;
 
     @if(ViewBag.Page < 
     Math.Ceiling((decimal)ViewBag.TotalCount / ViewBag.Length))
     {
-        <a href="?page=@(ViewBag.Page + 1)&length =@ViewBag.Length"> Next </a>
+        <a class="btn btn-sm btn-secondary" href="?page=@(ViewBag.Page + 1)&length =@ViewBag.Length"> Next </a>
 
     }
-   
 
+    <a id="gotocart" class="btn btn-danger" asp-controller="Cart" asp-action="DisplayCart">Go to Cart</a>    
    
 </div>
 
-
+<style>
+    #gotocart{
+        margin-left:450px;
+    }
+</style>
