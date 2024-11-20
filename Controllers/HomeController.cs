@@ -85,7 +85,7 @@ namespace MovieShop.Controllers
         public IActionResult PasswordVerification()
         {
             var password = Request.Form["Password"];
-            if (password =="#m#k#p")
+            if (password == "#m#k#p")
             {
                 return RedirectToAction("MovieMenu","Movies");
             }
@@ -93,17 +93,13 @@ namespace MovieShop.Controllers
             {
                 return RedirectToAction("PasswordFailed");
             }
-           
-
         }
         public IActionResult GetPassword()
         {
-
             return View();
         }
         public IActionResult PasswordFailed()
         {
-
             return View();
         }
     }

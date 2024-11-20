@@ -6,10 +6,9 @@
 <br />
 <div class="text-white bg-dark fw-bold" height="20px">
     Top 5 Newest Movies
-    <div id="div2" class="align-content-md-end fw-bold">
-        Popular Movie : @Model.PopularMovie.Title
-    </div>
+
 </div>
+
 <br />
 <div class="movie-section" height="250px">
     @foreach(var movie in Model.Top5Newest)
@@ -18,7 +17,7 @@
             <div class="card-header bg-secondary"><h6>@movie.Title</h6></div>
             <div class="card-body">
                 <img src="@movie.TargetUrl" width="150" height="150" />
-
+                
                 <h6 class="fw-bold">Release Year : @movie.Release_Year</h6>
 
                 <h6 class="fw-bold">Price : @movie.Price</h6>
@@ -29,11 +28,10 @@
 </div>
 <br /><hr />
 
-<div class="text-white bg-dark fw-bold" height="20px">Top 5 Oldest Movies
-    <div id="div2" class="align-content-md-end fw-bold">
-        Interstellar Movie Shop
-    </div>
+<div class="text-white bg-dark fw-bold" height="20px">
+    Top 5 Oldest Movies
 </div>
+
 <br />
 <div class="movie-section" height="300px">
     @foreach (var movie in Model.Top5Oldet)
@@ -54,12 +52,8 @@
 
 <br />
 <hr />
-<div class="text-white bg-dark fw-bold" height="30px">
-    Top 5 Chepest Movies
-    <div id="div2"class="align-content-md-end fw-bold">
-    Top Customer : 
-    @Model.TopCustomer.Firstname @Model.TopCustomer.Lastname
-    </div>
+<div class="text-white bg-dark fw-bold" height="20px">
+    Top 5 Cheapest Movies
 </div>
 <br />
 <div class="movie-section" height="300px">
@@ -79,9 +73,17 @@
 
 </div>
 <br />
+<div class="text-white bg-dark fw-bold" height="20px">
+    Popular Movie : @Model.PopularMovie.Title
+</div>
+<br />
+<div class="text-white bg-dark fw-bold" height="20px">
+    Top Customer :
+    @Model.TopCustomer.Firstname @Model.TopCustomer.Lastname
+</div>
 <hr />
 
-<style>
+@* <style>
     #div1{
         float:left;
     }
@@ -90,4 +92,4 @@
         color:cyan;
         padding-right:3px;
     }
-</style>
+</style> *@
