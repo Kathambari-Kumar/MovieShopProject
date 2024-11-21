@@ -26,87 +26,90 @@
 
     <!-- MenuBar-->
 
-     <div id="menubar" class="bg-black">
-        <nav class="navbar navbar-dark bg-black">
-            <form class="form-inline">
-                <img src="~/Images/Title.jpg" style="width:100px;height:70px" />
-                <button class="btn btn-black bg-gradient text-white fs-6" asp-controller="Home" asp-action="Index">Home</button>
+    <div id="menubar" class="col-sm-3 bg-black">
+    <nav class="navbar navbar-dark bg-black">
+        <form class="form-inline">
+            <img src="~/Images/Title.jpg" style="width:100px;height:70px" />
+            <button class="btn btn-black bg-gradient text-white fs-6" asp-controller="Home" asp-action="Index">Home</button>
 
-                <button class="btn bg-black bg-gradient btn-sm text-white fs-6" asp-controller="Customers" asp-action="Create">
-                    Register
-                </button>
-                <button class="btn bg-black btn-sm bg-gradient text-white fs-6" asp-controller="Customers" asp-action="CustomerMenu">
-                    Update/View Order Customer
-                </button>
+            <button class="btn bg-black bg-gradient btn-sm text-white fs-6" asp-controller="Customers" asp-action="Create">
+                Register
+            </button>
+            <button class="btn bg-black btn-sm bg-gradient text-white fs-6" asp-controller="Customers" asp-action="CustomerMenu">
+                Update/View Order Customer
+            </button>
 
-                <button class="btn bg-black btn-sm bg-gradient text-white fs-6" asp-controller="Movies" asp-action="List">
-                    Complete Movie List
-                </button>
+            <button class="btn bg-black btn-sm bg-gradient text-white fs-6" asp-controller="Movies" asp-action="List">
+                Complete Movie List
+            </button>
                
-                <button class="btn bg-black btn-sm bg-gradient text-white fs-6" id="dropdownMenuButton" asp-controller="Home" asp-action="GetPassword">
-                    Administrator
-                </button>
-                <button id="cart" type="button" class="btn btn-black text-white text-end" href="/cart/DisplayCart">
-                    Cart &nbsp;&nbsp;<span id="cartCount" class="badge badge-white bg-danger">@count</span>
-                </button>
-            </form>
+            <button class="btn bg-black btn-sm bg-gradient text-white fs-6" id="dropdownMenuButton" asp-controller="Home" asp-action="GetPassword">
+                Administrator
+            </button>
+            <button id="cart" type="button" class="btn btn-black text-white text-end" href="/cart/DisplayCart">
+                Cart &nbsp;&nbsp;<span id="cartCount" class="badge badge-white bg-danger">@count</span>
+            </button>
+        </form>
 
-        </nav>
-    </div>  
-    <hr />
-    <!-- Body -->
-    <div id="bodytop" class="text-white border border-1">
-        @{
-            var comedy = "Comedy";
-            var romance = "Romance";
-            var scifi = "Sci-Fi";
-            var thriller = "Thriller";
-            var horror = "Horror";
-            var drama = "Drama";
-        }
-        Search by Category : &nbsp;
+    </nav>
+</div>  
+<hr />
+<!-- Body -->
+<div id="bodytop" class="text-white col-sm-3 border border-1">
+    @{
+        var comedy = "Comedy";
+        var romance = "Romance";
+        var scifi = "Sci-Fi";
+        var thriller = "Thriller";
+        var horror = "Horror";
+        var drama = "Drama";
+    }
+    Search by Category : &nbsp;
 
-        <a class="btn btn-black text-white bg-gradient" href="/Movies/GenreBasedMovies?genre=@comedy">
-            Comedy
-        </a>&nbsp;
-        <a class="text-white btn btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@romance">
-            Romance
-        </a>&nbsp;
-        <a class="text-white btn btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@scifi">
-            Sci-Fi
-        </a>&nbsp;
-        <a class="text-white btn btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@thriller">
-            Thriller
-        </a>&nbsp;
-        <a class="text-white btn btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@horror">
-            Horror
-        </a>&nbsp;
-        <a class="text-white btn btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@drama">
-            Drama
-        </a>&nbsp;
-        &nbsp;&nbsp;&nbsp;
-    </div>
+    <a class="btn btn-black btn-sm text-white bg-gradient" href="/Movies/GenreBasedMovies?genre=@comedy">
+        Comedy
+    </a>&nbsp;
+        <a class="text-white btn btn-sm btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@romance">
+        Romance
+    </a>&nbsp;
+    <a class="text-white btn btn-sm btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@scifi">
+        Sci-Fi
+    </a>&nbsp;
+    <a class="text-white btn btn-sm btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@thriller">
+        Thriller
+    </a>&nbsp;
+    <a class="text-white btn btn-sm btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@horror">
+        Horror
+    </a>&nbsp;
+    <a class="text-white btn btn-sm btn-black bg-gradient" href="/Movies/GenreBasedMovies?genre=@drama">
+        Drama
+    </a>&nbsp;
+    &nbsp;&nbsp;&nbsp;
+</div>
 
-    <div id="body" class="container">
+<div id="bodycontainer" class="col-sm-3">
+    <div id="body" class="container col-sm-3">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-    <footer class="bg-black">
-        <div id="footer_left" class="btn btn-default btn-lg text-white">
+
+    <!-- Footer-->
+    <div id="footer" class="footer-bottom bg-black col-sm-3">
+        <div id="footer_left" class="btn btn-default col-md-6 btn-lg text-white">
             Copyright Interstellar Movie Shop<br />
             2024 Some Rights Reserved.<br />
         </div>
-        <div id="footer_left">          
-            <img id="corousel_img" src="~/Images/böackfriday.jpg" class="d-block w-75" alt="...">                 
+        <div id="footer_right col-sm-3">
+            <img id="footerimg" src="~/Images/böackfriday.jpg" width="250px" height="100px">                 
         </div>
-    </footer>
- 
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-        @await RenderSectionAsync("Scripts", required: false)
-    </body>
+</div>
+</div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
 </html>
 
 <style>
@@ -117,6 +120,10 @@
             margin: 0 auto 0;
         } */
 
+    #cart {
+        padding-left: 130px;
+    }
+
     #menubar {
         width: 100%;
         height: 70px;
@@ -124,49 +131,43 @@
 
     #bodytop {
         width: 100%;
-        height: 50px;
-        padding: 5px 0px 0px 10px;
+        height: 70px;
+        margin: 10px 20px 0px 0px;
+        padding: 20px 0px 10px 10px;
         background-color: black;
     }
 
-    #body {
+    #bodycontainer, #body {
         margin-bottom: 60px;
+        position:relative;
         width: 100%;
-        height: 8´900px;
         margin: 0 auto 0;
     }
 
-    #cart {
-        padding-left: 130px;
-    }
-
-
-    footer {
+    #footer {
         width: 100%;
         height: 100px;
-        float: left;
-        margin-top: 5px;
+        position:absolute;
+        margin:0px;
     }
 
     #footer_left {
-        width: 40%;
-        height: 100%;
+        width: 60%;
         float: left;
+        height: 100px;
     }
 
     #footer_right {
-        width: 50%;
-        height: 100%;
+        width: 30%;
+        height: 100px;
         float: right;
-        margin-left: 30px;
+        padding-top:10px;
     }
 
-    #corousel_img {
-        padding: 10px 0px 0px 30px;
-        height: 90px;
-        width: 50px;
+    #footerimg {
+        padding: 0px 0px 0px 60px;
+        margin: 0px 0px 5px 50px;
     }
-
 </style>
 
 @* <script>

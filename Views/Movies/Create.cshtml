@@ -4,15 +4,14 @@
     ViewData["Title"] = "Create";
 }
 
-<br />
-<br />
-<div style="width:900px;height:25px;background-color:dimgray; color:white;font-weight:bold">
-    Create Movie Details
+
+<div id="title" class="col-sm-12">
+    &nbsp; Create Movie Details
 </div>
 
 <br />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-sm-6">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -72,3 +71,12 @@
     }
 }
 
+<style>
+    #title {
+        height: 25px;
+        background-color: dimgray;
+        color: white;
+        font-weight: bold;
+        margin-top: 30px;
+    }
+</style>

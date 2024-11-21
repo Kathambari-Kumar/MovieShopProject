@@ -33,8 +33,6 @@ namespace MovieShop.Controllers
         public IActionResult Create(Movie movie)
         {
             _movieService.Create(movie);
-
-
             return View(movie);
         }
         public IActionResult Details()
@@ -43,16 +41,11 @@ namespace MovieShop.Controllers
             return View(movielist);
         }
 
-
-
         public IActionResult Update(Movie movie)
         {
             var movielist = _movieService.Display();
             return View(movielist);
         }
-
-       
-       
 
         public IActionResult GenreBasedMovies(string genre)
         {
@@ -76,9 +69,7 @@ namespace MovieShop.Controllers
         public IActionResult Edit(Movie movie)
         {
             _movieService.Editmovie(movie);
-
-
-            return RedirectToAction("Details");
+            return RedirectToAction("UpdateSuccessMessage");
         }
 
         public IActionResult UpdateSuccessMessage()
@@ -97,7 +88,6 @@ namespace MovieShop.Controllers
             return View(orders);
         }
 
-
         public IActionResult List(int length = 6, int page = 1)
         {
 
@@ -107,7 +97,6 @@ namespace MovieShop.Controllers
             ViewBag.Page = page;
             ViewBag.Length = length;
             ViewBag.TotalCount = _db.Movies.Count();
-
             return View(moviesList);
 
         }

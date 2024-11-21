@@ -4,60 +4,44 @@
 @{
 }
 
+<div id="maindiv" class="col-sm-12">
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+<div id="border"></div>
 
-<div style="width:900px;height:15px;background-color:darkgoldenrod"></div>
-
-<div id="messagediv" class="align-content-center text-white">
-    Administrator Functionalities
-    <div id="innerdiv">
-        <a class="btn bg-gradient text-white fw-bold" asp-controller="Movies" asp-action="Create">
+    <div id="title" class="align-middle text-white">
+        <h6 style="color:darkgoldenrod">&nbsp; Administrator Functionalities</h6>
+        <hr />
+        <a class="btn bg-gradient text-white" asp-controller="Movies" asp-action="Create">
             Create Movie
         </a>
-        <a class="btn bg-gradient text-white fw-bold" asp-controller="Movies" asp-action="Update">
+        <hr />
+        <a class="btn bg-gradient text-white" asp-controller="Movies" asp-action="Update">
             Update Movie
-        </a>
-        <a class="btn bg-gradient text-white fw-bold" asp-controller="Movies" asp-action="ShowAllOrders">
+        </a><hr />
+        <a class="btn bg-gradient text-white" asp-controller="Movies" asp-action="ShowAllOrders">
             View Orders
-        </a>
-        <a class="btn bg-gradient text-white fw-bold" asp-controller="Customers" asp-action="Details">
+        </a><hr />
+        <a class="btn bg-gradient text-white" asp-controller="Customers" asp-action="Details">
             Customer Details
-        </a>
+        </a>&nbsp;
+        
     </div>
+
+<div id="border"></div>
 </div>
-
-<div style="width:900px;height:15px;background-color:darkgoldenrod"></div>
-<br />
-<br />
-<br />
-@* @Html.ActionLink("Create a movie", "Create", "Movies")
-
-@Html.ActionLink("Update a movie", "Update", "Movies")
-
-@Html.ActionLink("Orders Details","","Movies") *@
-
 <style>
-    #messagediv {
+    #title {
         background-color: black;
-        width: 900px;
-        height: 70px;
-        margin-left: 0px;
-        padding-left: 5px;
+        padding: 10px 0px 0px 5px;
         font-weight: bold;
     }
 
-    #innerdiv {
-        margin-left: 350px;
-    }
-
-    #img1 {
-        margin-left: 300px;
+   #maindiv {
+        width: 25%;
+        margin: 50px 0px 0px 200px;
+   }
+    #border {
+        height: 15px;
+        background-color: darkgoldenrod;
     }
 </style>

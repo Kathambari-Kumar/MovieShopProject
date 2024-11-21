@@ -4,92 +4,112 @@
     ViewData["Title"] = "Index";
 } 
 <br />
-<div class="text-white bg-dark fw-bold" height="20px">
-    Top 5 Newest Movies
-
+<div class="col-sm-12 text-white bg-dark fw-bold" height="20px">
+    &nbsp;&nbsp; Top 5 Newest Movies
 </div>
-
 <br />
-<div class="movie-section" height="250px">
+
+<div class="row" width="100px" height="250px">
     @foreach(var movie in Model.Top5Newest)
     {
-        <div class="card" style="background-color:whitesmoke; width:230px; height:300px">
-            <div class="card-header bg-secondary"><h6>@movie.Title</h6></div>
-            <div class="card-body">
+        <div class="card col-sm" id="carddiv">
+            <div class="card-header" id="cardheader">
+                <p>@movie.Title</p>
+            </div>
+            <div class="card-body" height="250px">
                 <img src="@movie.TargetUrl" width="150" height="150" />
-                
-                <h6 class="fw-bold">Release Year : @movie.Release_Year</h6>
-
-                <h6 class="fw-bold">Price : @movie.Price</h6>
-
+                <h6 class="fw-bold">
+                    <span style="color:blue">Genre : </span>@movie.Genre
+                </h6>
+                <h6 class="fw-bold">
+                    <span style="color:blue">Year : </span>@movie.Release_Year
+                </h6>
+                <h6 class="fw-bold">
+                    <span style="color:blue">Price : </span>@movie.Price SEK
+                </h6>
             </div>
         </div>
     }
 </div>
-<br /><hr />
+<hr />
 
-<div class="text-white bg-dark fw-bold" height="20px">
-    Top 5 Oldest Movies
+<div class="text-white bg-dark fw-bold col-sm-12" height="20px">
+    &nbsp;&nbsp; Top 5 Oldest Movies
 </div>
 
 <br />
-<div class="movie-section" height="300px">
+<div class="row" height="340px">
     @foreach (var movie in Model.Top5Oldet)
     {
-        <div class="card" style="background-color:whitesmoke; width:230px; height:300px">
-            <div class="card-header bg-secondary"><h6>@movie.Title</h6></div>
-            <div class="card-body">
+        <div class="card col-sm" id="carddiv">
+            <div class="card-header" id="cardheader">
+                <p>@movie.Title</p>
+            </div>
+            <div class="card-body" height="250px">
                 <img src="@movie.TargetUrl" width="150" height="150" />
-               
-                <h6 class="fw-bold">Release Year : @movie.Release_Year</h6>
-
-                <h6 class="fw-bold">Price : @movie.Price</h6>
-              
+                <h6 class="fw-bold">
+                    <span style="color:blue">Genre : </span>@movie.Genre</h6>
+                <h6 class="fw-bold">
+                    <span style="color:blue">Year : </span>@movie.Release_Year</h6>
+                <h6 class="fw-bold"> 
+                    <span style="color:blue">Price : </span>@movie.Price SEK</h6>
             </div>
         </div>
     }
 </div>
 
-<br />
 <hr />
-<div class="text-white bg-dark fw-bold" height="20px">
+<div class="text-white bg-dark col-sm-12 fw-bold" height="20px">
     Top 5 Cheapest Movies
 </div>
 <br />
-<div class="movie-section" height="300px">
+<div class="row" height="300px">
     @foreach (var movie in Model.Top5Cheapest)
     {
-        <div class="card" style="background-color:whitesmoke; width:230px; height:300px">
-            <div class="card-header bg-secondary"><h6>@movie.Title</h6></div>
-            <div class="card-body">
+        <div class="card col-sm" id="carddiv">
+            <div class="card-header" id="cardheader">
+                <p>@movie.Title</p>
+            </div>
+            <div class="card-body" height="250px">
                 <img src="@movie.TargetUrl" width="150" height="150" />
-                <h6 class="fw-bold">Release Year : @movie.Release_Year</h6>
-
-                <h6 class="fw-bold">Price : @movie.Price</h6>
-               
+                <h6 class="fw-bold">
+                    <span style="color:blue">Genre : </span>@movie.Genre
+                </h6>
+                <h6 class="fw-bold">
+                    <span style="color:blue">Year : </span>@movie.Release_Year
+                </h6>
+                <h6 class="fw-bold">
+                    <span style="color:blue">Price : </span>@movie.Price SEK
+                </h6>
             </div>
         </div>
     }
+</div>
+<br />
 
+<div class="text-white bg-dark fw-bold col-sm-12" height="20px">
+    &nbsp;&nbsp; Popular Movie : @Model.PopularMovie.Title
 </div>
 <br />
-<div class="text-white bg-dark fw-bold" height="20px">
-    Popular Movie : @Model.PopularMovie.Title
-</div>
-<br />
-<div class="text-white bg-dark fw-bold" height="20px">
-    Top Customer :
+
+<div class="text-white col-sm-12 bg-dark fw-bold" height="20px">
+    &nbsp;&nbsp; Top Customer :
     @Model.TopCustomer.Firstname @Model.TopCustomer.Lastname
 </div>
 <hr />
 
-@* <style>
-    #div1{
-        float:left;
+<style>
+    #carddiv {
+        background-color:floralwhite;
+        width: 220px;
+        height: 300px;
     }
-    #div2 {
-        float:right;
-        color:cyan;
-        padding-right:3px;
+
+    #cardheader{
+        background-color:dimgray;
+        color:white;
+        height:35px;
+        font-family:'Comic Sans MS';
+        color:aliceblue;
     }
-</style> *@
+</style> 

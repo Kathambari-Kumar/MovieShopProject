@@ -9,14 +9,14 @@
 
 <br />
 <br />
-<table class="table table-bordered">
+<table class="table table-bordered col-sm">
     <thead>
-        <tr class="table-dark text-center text-white">
-            <th class="text-center text-white" style="width:100px">Image</th>
-            <th style="width:200px">Title</th>
-            <th style="width:50px">Price</th>
-            <th style="width:40px">SubTotal</th>
-            <th style="width:70px">Copies</th>
+        <tr >
+            <th class="text-center bg-dark text-white" style="width:100px">Image</th>
+            <th class="text-center bg-dark text-white" style="width:200px">Title</th>
+            <th class="text-center bg-dark text-white" style="width:50px">Price</th>
+            <th class="text-center bg-dark text-white" style="width:40px">SubTotal</th>
+            <th class="text-center bg-dark text-white" style="width:70px">Copies</th>
         </tr>
     </thead>
     <tbody>
@@ -26,10 +26,11 @@
             var subtotalid = "changesubtotal" + @item.MovieId;
             var priceid = "changeprice" + @item.MovieId;
             var rowid = "row" + @item.MovieId;
+
             total = (double)total + (@item.Price * @item.Copies);
             <tr class="fw-bold align-middle text-center" id="@rowid">
                 <td><img class="border border-2 border-secondary" src="@item.TargetURL" width="70" height="70" /></td>
-                <td style="width:150px">@item.Title</td>
+                <td style="width:130px">@item.Title</td>
                 <td style="width:50px" id="@priceid">@item.Price</td>
                 <td style="width:40px" id="@subtotalid">@(item.Price * item.Copies)</td>
                 <td nowrap="" id="td5" style="width:70px">
@@ -45,9 +46,9 @@
         }
     </tbody>
 </table>
-<div>
+<div class="col-sm">
     <hr />
-    <h5>Total : </h5> <p class="fw-bold" id='totalid'>@total</p>
+    <p class="fw-bold"> Total : &nbsp;</p><p class="fw-bold" id="totalid"> @total</p>
 </div>
 <a class="btn btn-secondary bg-black bg-gradient" asp-controller="Cart" asp-action="PlacingOrder">Place an Order</a>
 

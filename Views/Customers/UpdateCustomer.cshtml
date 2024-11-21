@@ -7,14 +7,14 @@
 
 <br />
 <br />
-<div style="width:900px;height:25px;background-color:dimgray; color:white;font-weight:bold">
+<div id="title" class="col-sm-12">
     Update Customer Details
 </div>
 <br />
 
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="SaveCustomer" asp-method="post">
+    <div class="col-sm-3">
+        <form asp-action="SaveCustomer" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
@@ -100,8 +100,16 @@
 
 }
 
+<style>
+    #title {
 
-
+      width:1000px;
+      height:25px;
+      background-color:dimgray; 
+      color:white;
+      font-weight:bold;
+    }
+</style>
 
 
 

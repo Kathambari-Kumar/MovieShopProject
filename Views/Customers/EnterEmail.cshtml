@@ -3,14 +3,12 @@
     ViewData["Title"] = "EnterEmail";
 }
 
-<br />
-<br />
-<div style="width:900px;height:25px;background-color:dimgray; color:white;font-weight:bold">
-    Update Customer Details
+<div class="col-sm-12" id="title">
+    &nbsp; Update Customer Details
 </div>
 <br />
-<div style="height:300px; width:400px">
-    <form asp-action="UpdateCustomer">
+<div style="height:300px; width:400px" class="col-sm-3">
+    <form asp-controller="Customers" asp-action="UpdateCustomer" method="post">
         <div class="form-group">
             <strong><label for="Email">EmaillAddres</label></strong>&nbsp;
             <input type="email" id="Email" name="Email" class="form-control" required />
@@ -20,4 +18,13 @@
     </form>
 </div>
 
-
+<style>
+    #title {
+        width: 1000px;
+        height: 25px;
+        background-color: dimgray;
+        color: white;
+        font-weight: bold;
+        margin-top: 30px;
+    }
+</style>
