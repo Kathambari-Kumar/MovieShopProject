@@ -6,8 +6,8 @@
 
 <br />
 <br />
-<div style="width:900px;height:25px;background-color:dimgray; color:white;font-weight:bold">
-    Interstellar Movie Shop Order Details
+<div class="col-sm-12" id="title">
+    &nbsp; Movie Shop Order Details
 </div>
 <br />
 <table class="table table-bordered table-striped table-sm align-middle">
@@ -45,42 +45,12 @@
     }
 </table>
 
-@* <h2>List of Orders</h2>
-
-@foreach (var order in Model)
-{
-    <div class="order">
-        <h4>Customer:@order.CustomerName</h4>
-        <h6> Order Date: @order.DateOfPurchase</h6>
-        <h6>Order Id: @order.OrderId</h6>
-        <p> Total Movies Ordered: @order.TotalOrderCount</p>
-        <p> Total Cost: @order.TotalOrderCost</p>
-        <h4> Movies</h4>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th> Title </th>
-                    <th> Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var movie in order.Movies)
-                {
-                    <tr>
-                        <td>
-                            @movie.Title
-                        </td>
-                        <td>
-                            @movie.Price
-                        </td>
-                    </tr>
-
-                }
-            </tbody>
-
-        </table>
-
-    </div>
-
-}
- *@
+<style>
+    #title {
+        width: 1000px;
+        height: 25px;
+        background-color: dimgray;
+        color: white;
+        font-weight: bold;
+    }
+</style>

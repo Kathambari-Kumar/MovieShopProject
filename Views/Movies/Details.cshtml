@@ -6,14 +6,14 @@
 
 <br />
 <br />
-<div style="width:900px;height:25px;background-color:dimgray; color:white;font-weight:bold">
-    Movie List
+<div class="col-sm" id="title">
+    &nbsp; Movie List
 </div>
 <br />
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-md-4">
+        <div class="col-sm-9">
             <partial name="_MoviePartial" model="item" /><br />
         </div>
     }
@@ -21,3 +21,12 @@
 <div>
     <a class="btn btn-danger" asp-controller="Cart" asp-action="DisplayCart">Go to Cart</a>
 </div>
+
+<style>
+    #title {
+        height: 25px;
+        background-color: dimgray;
+        color: white;
+        font-weight: bold;
+    }
+</style>

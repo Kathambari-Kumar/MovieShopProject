@@ -4,10 +4,14 @@
 @{
 }
 
+<div class="col-sm-12" id="title">
+    &nbsp; Create Customer Details
+</div>
 <br />
-<div class="border border-3" style="width:400px; height:950px">
 
-    <form asp-action="CreatingNewCustomer" method="post" style="width:300px;padding-left:30px;">
+<div style="width:400px">
+
+    <form name="createform" asp-action="CreatingNewCustomer" method="post" style="width:300px;padding-left:30px;">
 
         <div class="form-group">
             <label for="FirstName" class="control-label">
@@ -27,42 +31,50 @@
             <label for="BillingAddr" class="control-label">
                 <strong>Billing Address</strong>
             </label>
-            <input id="BillingAddr" name="BillingAddr" class="form-control" />
+            <input id="billingaddr" name="billingaddr" class="form-control" />
         </div>&nbsp;
 
         <div class="form-group">
-            <label for="BillingZip" class="control-label">
+            <label name="billingzip" for="BillingZip" class="control-label">
                 <strong>Billing Zip</strong>
             </label>
-            <input id="BillingZip" name="BillingZip" class="form-control" />
+            <input id="billingzip" name="billingzip" class="form-control" />
         </div>&nbsp;
 
         <div class="form-group">
             <label for="BillingCity" class="control-label">
                 <strong>Billing City</strong>
             </label>
-            <input id="BillingCity" name="BillingCity" class="form-control" />
+            <input id="billingcity" name="billingcity" class="form-control" />
         </div>&nbsp;
+
+        <p>
+            Delivery Address is same as Billing Address? &nbsp;
+            <strong>
+                <input type="radio" id="yes_addr" name="yes_addr" value="YES" onclick="yesfunction()">
+                <label for="html">YES</label><br>
+            </strong>
+        </p>
 
         <div class="form-group">
             <label for="DeliveryAddr" class="control-label">
                 <strong>Delievery Address</strong>
             </label>
-            <input id="DeliveryAddr" name="DeliveryAddr" class="form-control" />
+            <input id="deliveryaddr" name="deliveryaddr" class="form-control" />
         </div>&nbsp;
 
         <div class="form-group">
             <label for="DeliveryZip" class="control-label">
                 <strong>Delivery Zip</strong>
             </label>
-            <input id="DeliveryZip" name="DeliveryZip" class="form-control" />
+            <input id="deliveryzip" name="deliveryzip" class="form-control" />
         </div>&nbsp;
 
         <div class="form-group">
             <label for="DeliveryCity" class="control-label">
                 <strong>Delivery City</strong>
             </label>
-            <input id="DeliveryCity" name="DeliveryCity" class="form-control" />
+            <input id="deliverycity" name="deliverycity" class="form-control" />
         </div>&nbsp;
 
         <div class="form-group">
@@ -80,10 +92,20 @@
         </div>&nbsp;&nbsp;
         <hr />
         <div class="form-group">
-            <button type="submit" class="btn btn-primary" asp-controller="Cart" asp-action="CreateNewCustomer">
+            <button type="submit" class="btn bg-dark bg-gradient text-white" asp-controller="Cart" asp-action="CreateNewCustomer">
                 Create
             </button>
         </div>
 
     </form>
 </div>
+<hr />
+<style>
+    #title {
+        height: 25px;
+        background-color: dimgray;
+        color: white;
+        font-weight: bold;
+        margin-top : 30px;
+    }
+</style>

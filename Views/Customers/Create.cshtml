@@ -4,15 +4,12 @@
     ViewData["Title"] = "Create";
 }
 
-
-<br />
-<br />
-<div style="width:900px;height:25px;background-color:dimgray; color:white;font-weight:bold">
-    Create Customer Details
+<div class="col-sm-12" id="title">
+    &nbsp; Create Customer Details
 </div>
 <br />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-sm-6">
         <form name="createform" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -102,7 +99,15 @@
 <hr />
 
 
-
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<style>
+    #title {
+        height: 25px;
+        background-color: dimgray;
+        color: white;
+        font-weight: bold;
+    }
+</style>

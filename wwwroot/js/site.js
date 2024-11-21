@@ -27,13 +27,13 @@ function IncreaseCopy(movieId) {
     var subtotalid = "changesubtotal" + movieId;
     var priceid = "changeprice" + movieId;
     var cartcount = Number(document.getElementById('cartCount').innerHTML);
-    var totalid = Number(document.getElementById('totalid').innerHTML);
+    var totalid = Number(document.getElementById("totalid").innerHTML);
     var oldcopies = Number(document.getElementById(copyid).innerHTML);
     var price = Number(document.getElementById(priceid).innerHTML);
     var newcopies = oldcopies + 1;
     document.getElementById(copyid).innerText = newcopies;
     document.getElementById(subtotalid).innerText = newcopies * price;
-    document.getElementById('totalid').innerText = totalid + price;
+    document.getElementById("totalid").innerText = totalid + price;
     document.getElementById('cartCount').innerText = cartcount + 1;
 }
 

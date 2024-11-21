@@ -4,14 +4,12 @@
     ViewData["Title"] = "Edit";
 }
 
-<br />
-<br />
-<div style="width:900px;height:25px;background-color:dimgray; color:white;font-weight:bold">
+<div class="col-sm-12" id="title">
     Edit Movie Details
 </div>
 <br />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-sm-6">
         <form asp-action="Edit" asp-method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -71,4 +69,13 @@
     }
 }
 
-
+<style>
+    #title {
+        width: 900px;
+        height: 25px;
+        background-color: dimgray;
+        color: white;
+        font-weight: bold;
+        margin-top : 30px;
+    }
+</style>

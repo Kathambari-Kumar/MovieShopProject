@@ -4,18 +4,45 @@
 @{
 }
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+<div id="maindiv" class="col-sm-12">
+    <div id="border"></div>
+    <div id="title" class="align-middle text-white">
+        <h6 style="color:darkgoldenrod">
+        &nbsp; Customer Functionalities</h6>
+        <hr />
+        <a class="btn bg-gradient text-white" asp-controller="Customers" asp-action="EnterEmail">
+            Update Details
+        </a><hr />
+        <a class="btn bg-gradient text-white" asp-controller="Customers" asp-action="CustomerEmail">
+            View Orders
+        </a>
+    </div>
+    <div id="border"></div>
+</div>
+<style>
+    #title {
+        background-color: black;
+        padding: 10px 0px 0px 5px;
+        font-weight: bold;
+    }
 
-<div style="width:900px;height:15px;background-color:darkgoldenrod"></div>
+    #maindiv {
+        width: 25%;
+        margin: 50px 0px 50px 200px;
+    }
 
-<div id="messagediv" class="align-content-center text-white">
-    Customer Functionalities for Customer Table
-    <div id="innerdiv">
+    #border {
+        height: 15px;
+        background-color: darkgoldenrod;
+    }
+</style>
+
+
+@* <div id="border" class="col-sm-3"></div>
+
+<div id="title" class="align-content-center col-sm-3 text-white">
+    Customer Functionalities
+    <div id="menudiv" class="col-md-6">
         <a class="btn bg-gradient text-white fw-bold" asp-controller="Customers" asp-action="EnterEmail">
             Update Customer
         </a>
@@ -25,13 +52,13 @@
     </div>
 </div>
 
-<div style="width:900px;height:15px;background-color:darkgoldenrod"></div>
+<div id="border" class="col-md-6"></div>
 <br />
 <br />
 <br />
 
 <style>
-    #messagediv {
+    #title {
         background-color: black;
         width: 900px;
         height: 70px;
@@ -40,11 +67,18 @@
         font-weight: bold;
     }
 
-    #innerdiv {
+    #menudiv {
         margin-left: 600px;
     }
 
     #img1 {
         margin-left: 300px;
     }
-</style>
+
+    #border {
+        width: 1000px;
+        height: 15px;
+        margin: 40px 0px 10px 0px;
+        background-color: darkgoldenrod;
+    }
+</style> *@

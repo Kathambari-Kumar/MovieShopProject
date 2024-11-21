@@ -4,17 +4,14 @@
     ViewData["Title"] = "List";
 }
 
-
-<br />
-<br />
-<div style="width:900px;height:25px;background-color:dimgray; color:white;font-weight:bold">
+<div id="title" class="col-sm-3">
     Movie List
 </div>
 <br />
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-md-4">
+        <div class="col-sm-3">
             <partial name="_MoviePartial" model="item" /><br />
         </div>
     }
@@ -46,5 +43,13 @@
 <style>
     #gotocart{
         margin-left:450px;
+    }
+
+    #title {
+        width: 1000px;
+        height: 25px;
+        background-color: dimgray;
+        color: white;
+        font-weight: bold;
     }
 </style>

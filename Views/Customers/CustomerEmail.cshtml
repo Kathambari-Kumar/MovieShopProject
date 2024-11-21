@@ -5,11 +5,11 @@
 
 <br />
 <br />
-<div style="width:900px;height:25px;background-color:dimgray; color:white;font-weight:bold">
+<div class="col-sm-3" id="title">
     View Customer Order Details
 </div>
 <br />
-<div style="height:300px; width:400px">
+<div style="height:300px; width:400px" class="col-sm-3">
     <form asp-controller="Customers" asp-action="CustomerOrders" method="post">
         <div class="form-group">
             <strong><label for="Email">EmaillAddres</label></strong>&nbsp;
@@ -20,7 +20,15 @@
     </form>
 </div>
 
-
+<style>
+    #title {
+        width: 1000px;
+        height: 25px;
+        background-color: dimgray;
+        color: white;
+        font-weight: bold;
+    }
+</style>
 @* <form asp-controller="Customers" asp-action="CustomerOrders" method="post">
     <div class="form-group">
         <label for="Email"> Email Address</label>

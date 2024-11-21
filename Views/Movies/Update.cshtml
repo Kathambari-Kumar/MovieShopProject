@@ -4,24 +4,23 @@
     ViewData["Title"] ="Update";
 }
 
-<br />
-<br />
-<div style="width:900px;height:25px;background-color:dimgrey; color:white;font-weight:bold">
-    Update Movie Details
+<div class="col-sm-12" id="title">
+    &nbsp; Update Movie Details
 </div>
 <br />
 <div class="row">
     @foreach (var item in Model)
     {
-        <div class="col-md-4">
-            <div class="card" style="width:260px;height:400px">
-                <img class="card-img-top" src="@item.TargetUrl" style="width:260px;height:250px">
-                <div class="card-body" style="background-color:lightgray">
-                    <h6 class="fw-bold"><span style="color:mediumblue">@item.Title</span></h6>
-                    <h6 class="fw-bold">@item.Director </h6>
-                    <h6 class="fw-bold">@item.Release_Year |@item.Genre | @item.Price SEK</h6>
-                    <a class="btn bg-black bg-gradient text-white" asp-action="Edit" asp-route-id="@item.Id">
-                        Edit
+        <div class="col-sm-3">
+            <div class="card" style="width:220px;height:400px">
+                <img class="card-img-top" src="@item.TargetUrl" style="height:250px">
+                <div class="card-body fw-bold" style="background-color:black">
+                    <h6>@item.Title</h6>
+                    <h6>@item.Director </h6>
+                    <h6>@item.Release_Year |@item.Genre | @item.Price SEK</h6>
+                    
+                    <a class="btn bg-secondary bg-gradient text-white" asp-action="Edit" asp-route-id="@item.Id">
+                       UPDATE
                     </a>
                 </div>
             </div><br />
@@ -31,12 +30,22 @@
 
 <style>
     .card {
-        font-family: 'Comic Sans MS';
+        font-family:'David Libre';
+        font-weight:bold;
+        color:white;
     }
 
     .card-footer {
         padding-left: 50px;
         padding-top: 12px;
+    }
+    #title { 
+        width:900px;
+        height:25px;
+        background-color:dimgrey; 
+        color:white;
+        font-weight:bold;
+        margin-top : 30px;
     }
 </style>
 

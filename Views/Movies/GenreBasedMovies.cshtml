@@ -9,9 +9,8 @@
 @{
     ViewData["Title"] = "Display";
 }
-<br />
-<br />
-<div style="width:900px;height:25px;background-color:dimgray; color:white;font-weight:bold">
+
+<div class="col-sm-3" id="title">
     Genre Based Movie List
 </div>
 <br />
@@ -20,8 +19,7 @@
 <div class="row">
     @foreach (var item in Model)
     {
-
-        <div class="col-md-4">
+        <div class="col-sm-3">
             <partial name="_MoviePartial" model="item" /><br />
         </div>
     }
@@ -31,3 +29,13 @@
 <div style="background-color:black; width:100%">
     <a class="btn btn-black bg-gradient text-white" asp-controller="Cart" asp-action="DisplayCart">Go To Cart</a>
 </div>
+
+<style>
+    #title {
+        width: 1000px;
+        height: 25px;
+        background-color: dimgray;
+        color: white;
+        font-weight: bold;
+    }
+</style>

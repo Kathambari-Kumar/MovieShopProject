@@ -1,17 +1,18 @@
 ﻿@model MovieShop.Models.Db.Movie
 
-<div class="card" style="width:260px;height:450px">
-    <img class="card-img-top" src="@Model.TargetUrl" style="width:260px;height:250px">
-    <div class="card-body" style="background-color:lightgray">
+
+<div class="card card-sm" style="width:230px;height:430px">
+    <img class="card-img-top" src="@Model.TargetUrl" style="width:230px;height:230px">
+    <div class="card-body card-sm" style="background-color:lightgray">
         <h6 class="fw-bold"><span style="color:mediumblue">@Model.Title</span></h6>
-        <h6 class="fw-bold">@Model.Director </h6>
-        <h6 class="fw-bold">@Model.Release_Year | @Model.Genre | @Model.Price SEK</h6>
+        <h6>@Model.Director </h6>
+        <h6 >@Model.Release_Year | @Model.Genre | @Model.Price SEK</h6>
     </div>
-    <div class="card-footer" style="background-color:dimgrey; width:260px;height:70px">
+    <div class="card-sm-3 card-footer" style="background-color:dimgrey; width:230px;height:70px">
         <a class="btn btn-black bg-gradient text-white" onclick="AddToCart(@Model.Id)">ADD TO CART</a>
     </div>
 </div>
-
+&nbsp;
 
 <style>
     .card {
