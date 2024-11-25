@@ -46,7 +46,7 @@ namespace MovieShop.Services
         public Customer GetCustomerByemail(string email)
         {
             
-            var customer = _db.Customers.FirstOrDefault(c => c.EmaillAddress == email);
+            var customer = _db.Customers.SingleOrDefault(c => c.EmaillAddress == email);
 
 
             return customer;
