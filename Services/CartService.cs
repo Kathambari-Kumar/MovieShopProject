@@ -4,6 +4,7 @@ using MovieShop.Data;
 using MovieShop.Models.ViewModels;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http.HttpResults;
+using MovieShop.Extensions;
 
 namespace MovieShop.Services
 {
@@ -107,24 +108,33 @@ namespace MovieShop.Services
         {
             var session = _httpContextAccessor.HttpContext.Session;
             List<CartItem>? cartitems = JsonConvert.DeserializeObject<List<CartItem>>(session.GetString("MovieCart"));
-            var movie = cartitems.Where(m => m.MovieId == id).FirstOrDefault();
-            if (movie != null)
-            {
-                movie.Copies = movie.Copies + 1;
-            }
+            var movie = _interstellardb.Movies.SingleOrDefault(m => m.Id == id);
+            CartItem item = new CartItem();
+            item.Title = movie.Title;
+            item.TargetURL = movie.TargetUrl;
+            item.MovieId = movie.Id;
+            item.Price = movie.Price;
+            item.Copies = 1;
+            cartitems.Add(item);
             _httpContextAccessor.HttpContext.Session.SetString("MovieCart", JsonConvert.SerializeObject(cartitems));
+
+            //Display the count of cart
+            var cartList = _httpContextAccessor.HttpContext.Session.Get<List<int>>("ShoppingCart") ?? new List<int> { };
+            cartList.Add(id); //add the movieId to the list
+            _httpContextAccessor.HttpContext.Session.Set<List<int>>("ShoppingCart", cartList);
         }
 
         public void DecreaseCopy(int id)
         {
             var session = _httpContextAccessor.HttpContext.Session;
             List<CartItem>? cartitems = JsonConvert.DeserializeObject<List<CartItem>>(session.GetString("MovieCart"));
-            var movie = cartitems.Where(m => m.MovieId == id).FirstOrDefault();
-            if (movie != null)
-            {
-                movie.Copies = movie.Copies - 1;
-            }
+            var item = cartitems.FirstOrDefault(m => m.MovieId == id);
+            cartitems.Remove(item);
             _httpContextAccessor.HttpContext.Session.SetString("MovieCart", JsonConvert.SerializeObject(cartitems));
+
+            var cartList = _httpContextAccessor.HttpContext.Session.Get<List<int>>("ShoppingCart") ?? new List<int> { };
+            cartList.Remove(id); //add the movieId to the list
+            _httpContextAccessor.HttpContext.Session.Set<List<int>>("ShoppingCart", cartList);
         }
     }
 }
