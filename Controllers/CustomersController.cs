@@ -48,7 +48,7 @@ namespace MovieShop.Controllers
             { 
                 return RedirectToAction("CustomerNotFound");
             }
-           return RedirectToAction("Success");
+           return View(customer);
         }
 
         //[HttpPost]
