@@ -122,16 +122,16 @@ namespace MovieShop.Controllers
             _cartService.AddingNewCustomer(customer);
             return RedirectToAction("PlacingOrder");
         }
-        //public IActionResult AddItem(int movieid)
-        //{
-        //    _cartService.IncreaseCopy(movieid);
-        //    return RedirectToAction("DisplayCart");
-        //}
-      
-        //public IActionResult ReduceItem(int movieid)
-        //{
-        //    _cartService.DecreaseCopy(movieid);
-        //    return RedirectToAction("DisplayCart");
-        //}
+        public IActionResult AddItem(int movieid)
+        {
+            _cartService.IncreaseCopy(movieid);
+            return View();
+        }
+
+        public IActionResult ReduceItem(int movieid)
+        {
+            _cartService.DecreaseCopy(movieid);
+            return View();
+        }
     }
 }

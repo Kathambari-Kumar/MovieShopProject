@@ -123,10 +123,6 @@ namespace MovieShop.Services
             if (movie != null)
             {
                 movie.Copies = movie.Copies - 1;
-                if (movie.Copies == 0)
-                {
-                    cartitems.Remove(movie);
-                }
             }
             _httpContextAccessor.HttpContext.Session.SetString("MovieCart", JsonConvert.SerializeObject(cartitems));
         }
