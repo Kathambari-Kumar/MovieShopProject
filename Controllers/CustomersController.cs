@@ -85,16 +85,24 @@ namespace MovieShop.Controllers
         {
             var email = Request.Form["Email"];
             var customerOrder = _customerService.GetCustomerOrders(email);
-            if (customerOrder == null)
+            if (customerOrder.Count == 0)
             {
-                return RedirectToAction("CustomerNotFound");
+                return RedirectToAction("CustomerEmailNotFound");
+               
             }
             return View(customerOrder);
+
         }
 
         public IActionResult CustomerNotFound()
         {
             return View();
         }
+
+        public IActionResult CustomerEmailNotFound()
+        {
+            return View();
+        }
+
     }
 }
