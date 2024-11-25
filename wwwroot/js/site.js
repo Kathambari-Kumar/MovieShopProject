@@ -35,6 +35,14 @@ function IncreaseCopy(movieId) {
     document.getElementById(subtotalid).innerText = newcopies * price;
     document.getElementById("totalid").innerText = totalid + price;
     document.getElementById('cartCount').innerText = cartcount + 1;
+    $.ajax({
+        url: '/Cart/AddItem',
+        data: { emailid: email },
+        type: 'POST',
+        success: function (emailid) {
+            console.log("added");
+        }
+    });
 }
 
 function DecreaseCopy(movieId) {
@@ -57,6 +65,14 @@ function DecreaseCopy(movieId) {
         document.getElementById(subtotalid).innerText = newcopies * price;
         document.getElementById('totalid').innerText = totalid - price;
     }
+    $.ajax({
+        url: '/Cart/ReduceItem',
+        data: { emailid: email },
+        type: 'POST',
+        success: function (emailid) {
+            console.log("decresed");
+        }
+    });
 }
 
 function yesfunction() {

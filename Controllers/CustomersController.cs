@@ -26,7 +26,7 @@ namespace MovieShop.Controllers
         public IActionResult Create(Customer customer) 
         {
             _customerService.Create(customer);
-            return RedirectToAction("Details");
+            return RedirectToAction("CustCreateSuccessMessage");
         }
         public IActionResult Details() 
         {
@@ -46,9 +46,9 @@ namespace MovieShop.Controllers
            var customer = _customerService.GetCustomerByemail(email);
             if (customer == null)
             { 
-                return NotFound();
+                return RedirectToAction("CustomerNotFound");
             }
-           return View(customer);
+           return RedirectToAction("Success");
         }
 
         //[HttpPost]
@@ -59,7 +59,7 @@ namespace MovieShop.Controllers
                 _customerService.UpdateCustomer(customer);
                 return RedirectToAction("Success");
             }
-            return View(customer);
+            return RedirectToAction("Success");
         }
 
         public IActionResult Success()
@@ -85,7 +85,16 @@ namespace MovieShop.Controllers
         {
             var email = Request.Form["Email"];
             var customerOrder = _customerService.GetCustomerOrders(email);
+            if (customerOrder == null)
+            {
+                return RedirectToAction("CustomerNotFound");
+            }
             return View(customerOrder);
+        }
+
+        public IActionResult CustomerNotFound()
+        {
+            return View();
         }
     }
 }
