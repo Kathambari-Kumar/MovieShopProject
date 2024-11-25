@@ -58,6 +58,7 @@ namespace MovieShop.Controllers
                         .OrderByDescending(r => r.orderid)
                         .Take(1)
                         .SingleOrDefault();
+
             var model = new MoviesVM
             {
                 Top5Newest = listOfTop5Newest,

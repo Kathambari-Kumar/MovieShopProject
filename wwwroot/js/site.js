@@ -37,9 +37,9 @@ function IncreaseCopy(movieId) {
     document.getElementById('cartCount').innerText = cartcount + 1;
     $.ajax({
         url: '/Cart/AddItem',
-        data: { emailid: email },
+        data: { movieId: movieId },
         type: 'POST',
-        success: function (emailid) {
+        success: function (movieId) {
             console.log("added");
         }
     });
@@ -67,10 +67,10 @@ function DecreaseCopy(movieId) {
     }
     $.ajax({
         url: '/Cart/ReduceItem',
-        data: { emailid: email },
+        data: { movieId: movieId },
         type: 'POST',
-        success: function (emailid) {
-            console.log("decresed");
+        success: function (movieId) {
+            console.log("decraesed");
         }
     });
 }
